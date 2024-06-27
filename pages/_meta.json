@@ -1,0 +1,11 @@
+{
+    "docs": {
+        "title": "Docs",
+        "type": "page",
+        "display": "hidden"
+    },
+    "playground": {
+        "title": "Playground",
+        "type": "page"
+    }
+}

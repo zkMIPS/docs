@@ -2,5 +2,9 @@
     "welcome": {
         "title": "Welcome",
         "description": "Welcome to the Docs"
+    },
+    "gettingstarted": {
+        "title": "Getting Started",
+        "description": "Get started with the Docs"
     }
 }

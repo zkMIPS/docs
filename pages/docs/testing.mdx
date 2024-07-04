@@ -1,18 +1,11 @@
 "use client";
 import "../../src/app/globals.css"
 
-# Welcome to ZKM
- 
-Hello, world!
-
-## External Component
-
 import Marquee from 'react-fast-marquee'
 
 export default function DocContent() {
     return(
         <div>
-            
             <Marquee
             className="border-y-border dark:border-y-darkBorder dark:border-darkBorder dark:bg-darkBg border-y-2 bg-white py-3 font-base sm:py-5"
             direction="left"
@@ -22,9 +15,8 @@ export default function DocContent() {
                 .map((x, id) => {
                 return (
                     <div className="flex items-center bg-main" key={id}>
-                    <h1 className="text-darkText">ZKM</h1>
-                    <span className="mx-10 text-darkText text-xl font-heading sm:text-2xl lg:text-4xl">
-                        ZKM Docs
+                    <span className="mx-5 text-darkText text-xl font-heading sm:text-2xl lg:text-4xl">
+                        Welcome to the ZKM Docs
                     </span>
                     </div>
                 )

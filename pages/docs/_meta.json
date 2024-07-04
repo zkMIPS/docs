@@ -6,19 +6,5 @@
     "gettingstarted": {
         "title": "Start Here",
         "description": "Get started with the Docs"
-    },
-    "zkmMIPS": {
-        "title": "zkmMIPS Documentation",
-        "description": "Learn about zkmMIPS",
-        "items": {
-            "introduction": {
-                "title": "Introduction to zkmMIPS",
-                "description": "An introduction to zkmMIPS"
-            },
-            "setup": {
-                "title": "Setting Up zkmMIPS",
-                "description": "How to set up zkmMIPS"
-            }
-        }
     }
 }

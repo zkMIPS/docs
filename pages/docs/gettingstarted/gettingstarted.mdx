@@ -1,7 +1,11 @@
 "use client";
 import "../../src/app/globals.css"
+import Logo from '/assets/logoW.png'
+
 
 import Marquee from 'react-fast-marquee'
+import Image from 'next/image'
+
 
 export default function DocContent() {
     return(
@@ -23,8 +27,17 @@ export default function DocContent() {
                 })}
             </Marquee>
             <div className='pt-6 pb-6'>
+                <div className="flex items-center justify-center h-80 opacity-10">
+                    <Image width={420} height={420}
+                        className="object-cover w-full max-w-sm"
+                        src="/assets/logoW.png"
+                        alt="content"
+                        layout="intrinsic"
+                    />
+                </div>
+                <h1><strong className='bg-main text-darkText rounded p-1'>ZKM</strong> stands for Zero-Knowledge MIPS</h1>
                 <p>
-                ZKM stands for Zero-Knowledge MIPS; an advanced architecture that utilizes MIPS (Microprocessor without Interlocked Pipelined Stages) architecture - a class of Reduced Instruction Set Computer (RISC) CPU instructions - and harnesses the power of zero-knowledge proofs (ZKPs) to achieve its objectives.
+                An advanced architecture that utilizes MIPS (Microprocessor without Interlocked Pipelined Stages) architecture - a class of Reduced Instruction Set Computer (RISC) CPU instructions - and harnesses the power of zero-knowledge proofs (ZKPs) to achieve its objectives.
                 </p>
             </div>
             <div className="pt-6 pb-6">

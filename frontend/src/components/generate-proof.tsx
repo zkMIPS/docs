@@ -6,8 +6,20 @@ import ProgressBar from '@/components/ui/progressbar'
 import WalletConnectButton from '@/components/ui/wallet-connection';
 import { useAccount, useWriteContract, useWaitForTransactionReceipt } from 'wagmi'
 import { config } from '@/lib/config'
-
+import Block from './ui/block'
+import { Button } from './ui/button'
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+  } from '@/components/ui/card'
 import mytokenAbi from '@/lib/mytoken.abi.json';
+
+
+
 
 const GenerateProofBlock = ()=>{
     const { isConnected } = useAccount();
@@ -100,48 +112,51 @@ const GenerateProofBlock = ()=>{
     }
 
     return (
-        <div className='flex flex-col items-center mx-auto w-96'>
-            <div className='items-end'>
-                <WalletConnectButton/>
-            </div>
-            <div className='flex flex-row items-center mx-auto'>
-                <label className="block text-gray-700 text-sm font-bold mr-2">Mint Amount</label>
-                <input type='number'
-                className="mr-2 g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                value={inputNum} onChange={(e)=>{
-                    setInputNum(parseInt(e.target.value))
-                }}/>
-                {isGenerating &&<Loading />}
-                {!isGenerating && <button type='button' className = 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'
-                    onClick={(e)=>clickGenerateProof(e)}>Generate Proof</button>
-                }
-            </div>
-            <div className='flex flex-row items-center w-full'>
-                <ProgressBar duration={120} isStart={isGenerating}  />
-            </div>
-            <div className="flex flex-row items-center w-full my-2">
-                <label className="block text-gray-700 text-sm font-bold">Receive Address</label>
-                <input type='text' className="mr-2 g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                onChange={(e) =>{
-                    setReceiveAddr(e.target.value)
-                }}
-                />
+        <Block className="col-span-12 row-span-2 md:col-span-6">
+            <Card>
+                <div className='flex flex-col items-center mx-auto w-96 mt-2'>
+                    <div className='w-full m-3'>
+                        <WalletConnectButton/>
+                    </div>
+                    <div className='flex flex-row items-center mx-auto my-2'>
+                        <label className="block text-sm font-bold mr-2">Mint Amount</label>
+                        <input type='number'
+                        className="mr-2 g-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        value={inputNum} onChange={(e)=>{
+                            setInputNum(parseInt(e.target.value))
+                        }}/>
+                        {isGenerating &&<Loading />}
+                        {!isGenerating && <Button onClick={(e)=>clickGenerateProof(e)}>Generate Proof</Button>
+                        }
+                    </div>
+                    <div className='flex flex-row items-center w-full'>
+                        <ProgressBar duration={120} isStart={isGenerating}  />
+                    </div>
+                    <div className="flex flex-row items-center w-full my-2">
+                        <label className="block text-sm font-bold">Receive Address</label>
+                        <input type='text' className="mr-2 g-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        onChange={(e) =>{
+                            setReceiveAddr(e.target.value)
+                        }}
+                        />
 
-            </div>
-            <div className='flex flex-row items-center mx-auto w-full'>
-                <textarea className='block p-2.5 w-full h-48 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-                value={proof} onChange={()=>{}} />
-            </div>
+                    </div>
+                    <div className='flex flex-row items-center mx-auto w-full'>
+                        <textarea className='block p-2.5 w-full h-48 text-sm bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                        value={proof} onChange={()=>{}} />
+                    </div>
 
-            <div className='flex flex-col items-center mt-2'>
-                {isShowSubmit && <button type='button' className = 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'
-                    onClick={(e)=>clickSubmit(e)}>{isPending ? 'Confirming...' : 'Mint'}</button>
-                }
-                { hash && <div>Transaction Hash: {hash}</div> }
-                {isConfirming && <div>Waiting for confirmation...</div>}
-                {isConfirmed && <div>Transaction confirmed.</div>}
-            </div>
-        </div>
+                    <div className='flex flex-col items-center mt-2'>
+                        {isShowSubmit && <button type='button' className = 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'
+                            onClick={(e)=>clickSubmit(e)}>{isPending ? 'Confirming...' : 'Mint'}</button>
+                        }
+                        { hash && <div>Transaction Hash: {hash}</div> }
+                        {isConfirming && <div>Waiting for confirmation...</div>}
+                        {isConfirmed && <div>Transaction confirmed.</div>}
+                    </div>
+                </div>
+            </Card>
+        </Block>
     )
 }
 

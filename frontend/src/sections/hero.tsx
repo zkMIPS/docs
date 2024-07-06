@@ -1,8 +1,7 @@
 
 'use client';
-
-import { MotionProps, motion } from "framer-motion";
-import { twMerge } from "tailwind-merge";
+import Block from "@/components/ui/block";
+import { motion } from "framer-motion";
 import { FiArrowRight, FiMail, FiMapPin } from "react-icons/fi";
 import { FaPlus } from "react-icons/fa";
 import { SiGithub, SiTiktok, SiTwitter, SiYoutube  } from "react-icons/si";
@@ -46,41 +45,6 @@ export default function Hero() {
   )
 }
 
-
-
-type BlockProps = {
-  className?: string;
-} & MotionProps;
-
-const Block = ({ className, ...rest }: BlockProps) => {
-  return (
-    <motion.div
-      variants={{
-        initial: {
-          scale: 0.5,
-          y: 50,
-          opacity: 0,
-        },
-        animate: {
-          scale: 1,
-          y: 0,
-          opacity: 1,
-        },
-      }}
-      transition={{
-        type: "spring",
-        mass: 3,
-        stiffness: 400,
-        damping: 50,
-      }}
-      className={twMerge(
-        "border-border dark:border-darkBorder dark:bg-darkBg shadow-light dark:shadow-dark rounded-base border-2 bg-white p-6",
-        className
-      )}
-      {...rest}
-    />
-  );
-};
 
 {/* <img
       src="https://api.dicebear.com/8.x/lorelei-neutral/svg?seed=John"

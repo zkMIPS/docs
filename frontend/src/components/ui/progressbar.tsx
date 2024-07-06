@@ -25,8 +25,8 @@ const ProgressBar = ({duration, isStart}: ProgressBarProps)=>{
       }, [duration, isStart]);
 
     return (
-        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 my-1">
-            <div className="bg-blue-600 h-2.5 rounded-full" style={{width: `${progress}%`}}> </div>
+        <div className="relative h-4 w-full overflow-hidden rounded-base border-2 border-border dark:border-darkBorder bg-white dark:bg-darkBg">
+            <div className="bg-main h-2.5 rounded-full" style={{width: `${progress}%`}}> </div>
         </div>
     )
 }

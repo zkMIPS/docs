@@ -1,7 +1,10 @@
+'use client'
 import Hero from '@/sections/hero'
 import Footer from '@/components/footer'
 import Marquee from 'react-fast-marquee'
-
+import { WagmiProvider } from 'wagmi'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { config } from '@/lib/config'
 
 const Star3 = () => {
   return (
@@ -20,9 +23,12 @@ const Star3 = () => {
 }
 
 
+const queryClient = new QueryClient()
+
 export default function Home() {
   return (
-    <>
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
       <Hero />
       <div>
         <Marquee
@@ -44,6 +50,7 @@ export default function Home() {
         </Marquee>
       </div>
       <Footer />
-    </>
+      </QueryClientProvider>
+    </WagmiProvider>
   )
 }

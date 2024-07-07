@@ -16,13 +16,14 @@ import {
 } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
 import { useState, useEffect } from 'react';
+import GenerateProofBlock from '@/components/generate-proof';
 
 
 
 export default function Content() {
   return (
     <section className="dark:bg-darkBg inset-0 flex h-full w-full flex-col items-center justify-center bg-white bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px]">
-      <div className="mx-auto w-full max-w-full px-12 py-12  lg:py-[150px]">
+      <div className="mx-auto w-full max-w-full px-12 py-12  lg:py-[20px]">
         <motion.div
           initial="initial"
           animate="animate"
@@ -32,9 +33,7 @@ export default function Content() {
           className="mx-auto grid grid-flow-dense grid-cols-12 gap-4"
         >
         <div className="col-span-12">
-            <h2 className="mb-14 px-5 text-center text-2xl font-heading md:text-3xl lg:mb-20 lg:text-4xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing
-            </h2>
+            <GenerateProofBlock />
         </div>
           <SocialsBlock />
         </motion.div>

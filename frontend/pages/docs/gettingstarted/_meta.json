@@ -1,10 +1,14 @@
 {
     "gettingstarted": {
-        "title": "☀️Getting Started",
-        "description": "Get started with the Docs"
+        "title": "Start Here"
     },
     "introductiontozk": {
-        "title": "👋Introduction to ZK",
-        "description": "Get started with ZK"
+        "title": "Introduction to ZK"
+    },
+    "use-cases": {
+        "title": "Use Cases"
+    },
+    "zkm-architecture": {
+        "title": "ZKM Architecture"
     }
 }

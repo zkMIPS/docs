@@ -153,7 +153,7 @@ const SocialsBlock = () => (
 const AboutBlock = () => (
   <Block className="col-span-8 text-3xl leading-snug">
     <p>
-      Let's get you started today!<br/>
+      Lets get you started today!<br/>
       <span className="text-zinc-400">
         ZKM is fully open source and available for anyone to build upon leveraging the MIPS instruction set. 
       </span>

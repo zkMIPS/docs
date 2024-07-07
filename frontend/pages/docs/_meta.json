@@ -1,10 +1,14 @@
 {
     "welcome": {
-        "title": "Welcome",
+        "title": "👋 Welcome",
         "description": "Welcome to the Docs"
     },
     "gettingstarted": {
-        "title": "Start Here",
+        "title": "☀️ Getting Started",
+        "description": "Get started with the Docs"
+    },
+    "ZKM-Architecture": {
+        "title": "⚡ ZKM Architecture",
         "description": "Get started with the Docs"
     }
 }

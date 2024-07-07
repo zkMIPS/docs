@@ -3,15 +3,27 @@ import Image from 'next/image'
 
 export default {
   logo: <Image className='dark:invert' width={164} height={164} src="/assets/ZKMLogoHorizontal.png"/>,
-  css: `
-    .nextra-sidebar-item.active,
-    .nextra-sidebar-button.active {
-    color: #ff00ff !important;
-    background-color: #ff00ff !important;
+  docsRepositoryBase: 'https://github.com/savvycodings/zkmDoc',
+  head: (
+    <>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta property="og:title" content="ZKM" />
+    </>
+  ),
+  primaryHue: { dark: 29, light: 29},
+  primarySaturation: { dark: 100, light: 100},
+  useNextSeoProps() {
+    return {
+      titleTemplate: 'ZKM Docs'
     }
-    `,
+  },
   project: {
-    link: 'https://github.com/shuding/nextra'
+    link: 'https://www.zkm.io/',
+    icon: <Image width="30" height="30"
+    style={{
+      borderRadius: '50%'
+    }}
+    src="/assets/ZKMLogomark.png"/>
   },
   sidebar: {
     titleComponent({ title, type }) {

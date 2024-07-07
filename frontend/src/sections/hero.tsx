@@ -17,6 +17,8 @@ import {
 import { Progress } from '@/components/ui/progress'
 import { useState, useEffect } from 'react';
 import Content from "@/components/content";
+import Image from 'next/image'
+
 
 
 
@@ -96,7 +98,7 @@ const SocialsBlock = () => (
         rotate: "2.5deg",
         scale: 1.1,
       }}
-      className="col-span-6 bg-red-500 md:col-span-3"
+      className="col-span-6 bg-darkBg md:col-span-3"
     >
       <a
         href="#"
@@ -110,7 +112,7 @@ const SocialsBlock = () => (
         rotate: "-2.5deg",
         scale: 1.1,
       }}
-      className="col-span-6 bg-green-600 md:col-span-3"
+      className="col-span-6 bg-darkBg md:col-span-3"
     >
       <a
         href="#"
@@ -124,11 +126,11 @@ const SocialsBlock = () => (
         rotate: "-2.5deg",
         scale: 1.1,
       }}
-      className="col-span-6 bg-zinc-50 md:col-span-3"
+      className="col-span-6 bg-darkBg md:col-span-3"
     >
       <a
         href="#"
-        className="grid h-full place-content-center text-3xl text-black"
+        className="grid h-full place-content-center text-3xl text-white"
       >
         <SiTiktok />
       </a>
@@ -138,7 +140,7 @@ const SocialsBlock = () => (
         rotate: "2.5deg",
         scale: 1.1,
       }}
-      className="col-span-6 bg-blue-500 md:col-span-3"
+      className="col-span-6 bg-darkBg md:col-span-3"
     >
       <a
         href="#"
@@ -226,22 +228,10 @@ const EmailListBlock = () => (
 const Logo = () => {
   // Temp logo from https://logoipsum.com/
   return (
-    <svg
-      width="40"
-      height="auto"
-      viewBox="0 0 50 39"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="mx-auto mb-12 fill-zinc-50"
-    >
-      <path
-        d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z"
-        stopColor="#000000"
-      ></path>
-      <path
-        d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
-        stopColor="#000000"
-      ></path>
-    </svg>
+    <img
+      src="public/assets/logoW.png"
+      alt="avatar"
+      className="mb-4 size-14 rounded-full"
+    /> 
   );
 };

@@ -32,7 +32,7 @@ export default function Content() {
           }}
           className="mx-auto grid grid-flow-dense grid-cols-12 gap-4"
         >
-        <div className="col-span-12">
+        <div className="col-span-6">
             <GenerateProofBlock />
         </div>
           <SocialsBlock />
@@ -86,40 +86,60 @@ const SocialsBlock = () => (
         rotate: "2.5deg",
         scale: 1.1,
       }}
-      className="col-span-12 bg-red-500 md:col-span-3"
+      className="col-span-12 bg-main dark:bg-main md:col-span-3"
     >
       <img className="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/720x400" alt="content" />
-      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Chichen Itza</h2>
+      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Under Construction</h2>
     </Block>
     <Block
       whileHover={{
         rotate: "-2.5deg",
         scale: 1.1,
       }}
-      className="col-span-12 bg-green-600 md:col-span-3"
+      className="col-span-12 bg-main dark:bg-main md:col-span-3"
     >
       <img className="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/720x400" alt="content" />
-      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Chichen Itza</h2>
+      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Under Construction</h2>
     </Block>
     <Block
       whileHover={{
         rotate: "-2.5deg",
         scale: 1.1,
       }}
-      className="col-span-12 bg-zinc-50 md:col-span-3"
+      className="col-span-12 bg-darkText dark:bg-darkText bg-zinc-50 md:col-span-3"
     >
       <img className="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/720x400" alt="content" />
-      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Chichen Itza</h2>
+      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Under Construction</h2>
     </Block>
     <Block
       whileHover={{
         rotate: "2.5deg",
         scale: 1.1,
       }}
-      className="col-span- bg-blue-500 md:col-span-3"
+      className="col-span- bg-darkText dark:bg-darkText md:col-span-3"
     >
       <img className="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/720x400" alt="content" />
-      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Chichen Itza</h2>
+      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Under Construction</h2>
+    </Block>
+    <Block
+      whileHover={{
+        rotate: "2.5deg",
+        scale: 1.1,
+      }}
+      className="col-span- bg-darkText dark:bg-darkText md:col-span-3"
+    >
+      <img className="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/720x400" alt="content" />
+      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Under Construction</h2>
+    </Block>
+    <Block
+      whileHover={{
+        rotate: "2.5deg",
+        scale: 1.1,
+      }}
+      className="col-span- bg-darkText dark:bg-darkText md:col-span-3"
+    >
+      <img className="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/720x400" alt="content" />
+      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Under Construction</h2>
     </Block>
   </>
 );

@@ -1,8 +1,8 @@
 {
-    "Combining-MIPS-with-Zero-Knowledge": {
-        "title": "Combining MIPS with Zero-Knowledge"
-    },
     "zkmips-a-high-level-specification": {
         "title": "zkMIPS: a High-Level Specification"
+    },
+    "Combining-MIPS-with-Zero-Knowledge": {
+        "title": "Combining MIPS with Zero-Knowledge"
     }
 }

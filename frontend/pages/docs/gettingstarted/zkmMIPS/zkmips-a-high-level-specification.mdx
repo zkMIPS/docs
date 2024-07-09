@@ -5,6 +5,8 @@ import Logo from '/assets/logoW.png'
 
 import Marquee from 'react-fast-marquee'
 import Image from 'next/image'
+import ResponsiveDiv from "../../../../src/components/docshero"
+
 
 export default function DocContent() {
     return(
@@ -26,14 +28,7 @@ export default function DocContent() {
                 })}
             </Marquee>
             <div className="pb-6">
-                <div className="flex items-center justify-center h-80 invert opacity-10">
-                    <Image width={1080} height={1080}
-                        className="object-cover w-full max-w-sm dark:invert"
-                        src="/assets/logoW.png"
-                        alt="content"
-                        layout="intrinsic"
-                    />
-                </div>
+                <ResponsiveDiv />
                 <p>Following the recent release of the updated zkMIPS paper by ZKM Research, we hope to address the key questions that followed from our community. Here, we present a broad Q&A with insights into the paper.</p>
 
             </div>

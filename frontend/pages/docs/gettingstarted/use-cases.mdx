@@ -5,6 +5,7 @@ import Logo from '/assets/logoW.png'
 
 import Marquee from 'react-fast-marquee'
 import Image from 'next/image'
+import ResponsiveDiv from "../../../src/components/docshero"
 
 
 export default function DocContent() {
@@ -28,14 +29,7 @@ export default function DocContent() {
             </Marquee>
             <div className='pt-6 pb-6'>
             <div className="pb-6">
-                <div className="flex items-center justify-center h-80 invert opacity-10">
-                    <Image width={1080} height={1080}
-                        className="object-cover w-full max-w-sm dark:invert"
-                        src="/assets/logoW.png"
-                        alt="content"
-                        layout="intrinsic"
-                    />
-                </div>
+                <ResponsiveDiv />
                 <p>At its core, ZKM's initial use cases are focused on verifiable and succinctness of computation. Other privacy focused use-cases can be achieved, but it is not the direct focus of ZKM.</p>
             </div>
                 <h1>Hybrid Rollup</h1>

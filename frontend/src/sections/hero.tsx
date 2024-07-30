@@ -1,10 +1,16 @@
 
 'use client';
 import Block from "@/components/ui/block";
+import Link from 'next/link';
 import { motion } from "framer-motion";
 import { FiArrowRight, FiMail, FiMapPin } from "react-icons/fi";
 import { FaPlus } from "react-icons/fa";
-import { SiGithub, SiTiktok, SiTwitter, SiYoutube  } from "react-icons/si";
+import { SiDocusaurus, SiDocusign, SiGithub, SiTiktok, SiTwitter, SiYoutube   } from "react-icons/si";
+import { SlDocs } from "react-icons/sl";
+import { Badge } from '@/components/ui/badge'
+import { FaDiscord } from "react-icons/fa";
+import { PiIslandFill } from "react-icons/pi";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -66,25 +72,21 @@ const HeaderBlock = () => {
     <Block className="col-span-12 row-span-2 md:col-span-6">
       <Card>
         <CardHeader>
-          <CardTitle>Introduction to ZKM</CardTitle>
-          <CardDescription>Deploy your new project in one-click.</CardDescription>
+          <CardTitle className="text-darkBg">
+            Welcome to ZKM
+          </CardTitle>
+          <CardDescription>Get started with our general-purpose zkVM</CardDescription>
         </CardHeader>
         <CardContent>
-          <form>
-            <div className="grid w-full items-center gap-4">
-              <div className="flex flex-col space-y-1.5">
-                <p>Token</p>
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <p>Proof Status</p>
-                <Progress value={progress} className="w-[60%]" />
-              </div>
-            </div>
-          </form>
+          <p>
+            By utilizing the power of zkMIPS
+            We have created the Entangled Rollup Network where blockchains can share native assets with no added security assumptions.
+          </p>
         </CardContent>
-        <CardFooter className="flex justify-between">
-          <Button>Details</Button>
-          <Button>Deploy</Button>
+        <CardFooter className="flex space-x-3">
+          <Badge variant={"neutral"} >zkmup</Badge>
+          <Badge variant={"neutral"}>cargo zkm --version</Badge>
+          <Badge variant={"neutral"}>cargo zkm new my_project</Badge>
         </CardFooter>
       </Card>
     </Block>
@@ -104,7 +106,10 @@ const SocialsBlock = () => (
         href="#"
         className="grid h-full place-content-center text-3xl text-white"
       >
-        <SiYoutube />
+        <div className="flex space-x-2 items-center">
+          <FaDiscord  />
+          <p>Dev Hub</p>
+        </div>
       </a>
     </Block>
     <Block
@@ -118,7 +123,10 @@ const SocialsBlock = () => (
         href="#"
         className="grid h-full place-content-center text-3xl text-white"
       >
-        <SiGithub />
+        <div className="flex space-x-2 items-center">
+          <SiGithub  />
+          <p>Github</p>
+        </div>
       </a>
     </Block>
     <Block
@@ -129,10 +137,13 @@ const SocialsBlock = () => (
       className="col-span-6 bg-darkBg md:col-span-3"
     >
       <a
-        href="#"
-        className="grid h-full place-content-center text-3xl text-white"
-      >
-        <SiTiktok />
+          href="https://playground.zkm.io/"
+          className="grid h-full place-content-center text-3xl text-white"
+          target="_blank" rel="noopener noreferrer">
+        <div className="flex space-x-2 items-center">
+          <PiIslandFill />
+          <p>Playground</p>
+        </div>
       </a>
     </Block>
     <Block
@@ -142,12 +153,14 @@ const SocialsBlock = () => (
       }}
       className="col-span-6 bg-darkBg md:col-span-3"
     >
-      <a
-        href="#"
-        className="grid h-full place-content-center text-3xl text-white"
-      >
-        <SiTwitter />
-      </a>
+      <Link href="/docs/welcome" legacyBehavior>
+        <a className="grid h-full place-content-center text-3xl text-white">
+          <div className="flex space-x-2 items-center">
+            <SlDocs />
+            <p>Documents</p>
+          </div>
+        </a>
+      </Link>
     </Block>
   </>
 );

@@ -25,7 +25,16 @@ export default {
     }}
     src="/assets/ZKMLogomark.png"/>
   },
+  banner: {
+    key: '2.0-release',
+    text: (
+      <a href="https://playground.zkm.io/" target="_blank">
+        🎉 Our playground is live! →
+      </a>
+    )
+  },
   sidebar: {
+    width: 30,
     titleComponent({ title, type }) {
       if (type === 'separator') {
         return <div style={{ background: 'red', textAlign: 'center' }}>{title}</div>
@@ -37,22 +46,21 @@ export default {
 
       return (
         <> {title}</>
-  );
+      );
     }
   },
   footer: {
     text: (
-      <span className="m500:text-sm dark:bg-darkText z-30 px-5 py-5 text-center font-base">
-      
-      <a
-        target="_blank"
-        href="https://www.zkm.io/"
-        className="font-heading underline"
-      >
-        ZKM{' '}
-      </a>
-      is a general-purpose zkVM utilizing MIPS architecture, set to facilitate Ethereum as the Global/universal settlement layer.
-    </span>
+        <span className="m500:text-sm z-30 px-5 py-5 text-center font-base">
+        <a
+          target="_blank"
+          href="https://www.zkm.io/"
+          className="font-heading underline"
+          >
+          ZKM{' '}
+        </a>
+        is a general-purpose zkVM utilizing MIPS architecture, set to facilitate Ethereum as the Global/universal settlement layer.
+      </span>
     )
   },
 }

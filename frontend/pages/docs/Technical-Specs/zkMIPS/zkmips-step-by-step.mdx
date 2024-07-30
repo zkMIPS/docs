@@ -5,7 +5,8 @@ import step1 from '/assets/step1.webp'
 
 import Marquee from 'react-fast-marquee'
 import Image from 'next/image'
-import ResponsiveDiv from "../../../src/components/docshero"
+import ResponsiveDiv from "../../../../src/components/docshero"
+
 
 
 export default function DocContent() {
@@ -61,7 +62,7 @@ export default function DocContent() {
                 <h1>Techniques For Succinct zkMIPS Proving </h1>
                 <p>The following sections describe techniques that zkMIPS uses for improving the succinctness during the proof generation process. This includes arithmetization, FRI, method continuation, lookups and polynomial commitments. </p>
                 <p>More details can be found in “Getting to Know zkMIPS Proving Architecture” written by ZKM Researcher Lucas Fraga and the zkMIPS whitepaper written by the ZKM research team. </p>
-                
+
                 <p><strong>How can we complete the verification of a MIPS program more efficiently?</strong></p>
                 <p>With succinct proofs, we can verify a program in a time that is polynomial on the logarithm of the size of the program. For example, a program of size n can be verified in around a time that is polynomial on log(n). </p>
                 <div>
@@ -92,7 +93,7 @@ export default function DocContent() {
                     </ul>
                     <p>The program is verified through polynomial evaluations on the composition polynomial. What specific evaluations should be performed on the composition polynomial? </p>
                 </div>
-                
+
                 <h1>FRI Protocol</h1>
                 <p>The FRI protocol is one such method for determining this, specifically used to verify whether the composition polynomial has a proper degree.</p>
                 <p>The way the composition polynomial is defined guarantees that, if it is indeed a polynomial, the witness and constraints must match, and the program and its execution trace as a result are compatible. This is sufficient enough to verify the program. </p>
@@ -180,7 +181,7 @@ export default function DocContent() {
                         <p>Any high-level language can compile down to MIPS. We get a sequence of the MIPS instructions as a result.</p>
                         <p>For example for row i, the described data operation is addition. In the instruction, the value in register 5 (13) is added to the value in register 6 (21). The result of the computation is stored in register 7 (34). For row i+1, the described data operation is addition (using an immediate operand). In the instruction, the value in register 5 (21) moves to register 6. </p>
                         <p>After each instruction is executed (left side table), we will get a value for each register. After going through all the instructions, we will get the trace table (right side table). </p>
-                        
+
                         <li>Prover</li>
                         <p>The Prover executes the MIPS program and uses the execution trace to generate a proof.</p>
                         <p>As part of the Prover, the following are steps in the proof generation process:</p>

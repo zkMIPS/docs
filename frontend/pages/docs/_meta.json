@@ -1,18 +1,20 @@
 {
     "welcome": {
-        "title": "👋 Welcome",
-        "description": "Welcome to the Docs"
+        "title": "Welcome"
     },
     "gettingstarted": {
-        "title": "☀️ Getting Started",
-        "description": "Get started with the Docs"
+        "title": "Getting Started"
     },
-    "Guides": {
-        "title": "✌️ Guides",
-        "description": "Get started with the Docs"
+    "User-Guide": {
+        "title": "✹ User Guide"
     },
-    "ZKM-Architecture": {
-        "title": "⚡ ZKM Architecture",
-        "description": "Get started with the Docs"
+    "Developer-Docs": {
+        "title": "✹ Developer Docs"
+    },
+    "Technical-Specs": {
+        "title": "✹ Technical Specs"
+    },
+    "Additinal-Data": {
+        "title": "✹ Additinal Data"
     }
 }

@@ -9,11 +9,11 @@ export default function Nav() {
   const path = usePathname()
 
   return (
-    <nav className="border-b-border dark:border-b-darkBorder grid h-[50px] grid-cols-[1fr_1fr_50px] rounded-tr-base border-b-4 bg-black text-xl w600:text-lg w400:h-10 w400:text-base portrait:rounded-none">
+    <nav className="w600:text-lg w400:h-10 w400:text-base grid h-[50px] grid-cols-[1fr_1fr_50px] rounded-tr-base border-b-4 border-b-border bg-black text-xl dark:border-b-darkBorder portrait:rounded-none">
       <Link
         className={clsx(
           'flex h-full items-center justify-center uppercase',
-          path === '/' ? 'bg-black text-white' : 'text-text bg-main',
+          path === '/' ? 'bg-black text-white' : 'bg-main text-text',
         )}
         href="/"
       >
@@ -22,7 +22,7 @@ export default function Nav() {
       <Link
         className={clsx(
           'flex h-full items-center justify-center uppercase',
-          path === '/work' ? 'bg-black text-white' : 'text-text bg-main',
+          path === '/work' ? 'bg-black text-white' : 'bg-main text-text',
         )}
         href="/work"
       >

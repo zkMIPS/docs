@@ -1,20 +1,14 @@
 {
-    "welcome": {
-        "title": "Welcome"
-    },
-    "gettingstarted": {
-        "title": "Getting Started"
-    },
-    "User-Guide": {
-        "title": "✹ User Guide"
-    },
-    "Developer-Docs": {
-        "title": "✹ Developer Docs"
-    },
-    "Technical-Specs": {
-        "title": "✹ Technical Specs"
-    },
-    "Additinal-Data": {
-        "title": "✹ Additinal Data"
-    }
+  "welcome": {
+    "title": "Welcome"
+  },
+  "getting-started": {
+    "title": "Getting Started"
+  },
+  "guides": {
+    "title": "Developer Docs"
+  },
+  "additional-resources": {
+    "title": "Additional Resources"
+  }
 }

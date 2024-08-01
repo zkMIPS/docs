@@ -1,0 +1,11 @@
+{
+  "introduction": {
+    "title": "Introduction"
+  },
+  "hardware-requirements": {
+    "title": "Hardware Requirements"
+  },
+  "docker-setup": {
+    "title": "Docker Setup"
+  }
+}

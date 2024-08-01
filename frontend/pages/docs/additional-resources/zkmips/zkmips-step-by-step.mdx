@@ -2,32 +2,13 @@
 import "../../src/app/globals.css"
 import step1 from '/assets/step1.webp'
 
-
 import Marquee from 'react-fast-marquee'
 import Image from 'next/image'
-import ResponsiveDiv from "../../../../src/components/docshero"
-
-
+import ResponsiveDiv from '../../../../src/components/docshero'
 
 export default function DocContent() {
     return(
         <div>
-            <Marquee
-            className="border-y-border dark:border-y-darkBorder dark:border-darkBorder dark:bg-darkBg border-y-2 bg-white py-3 font-base sm:py-5"
-            direction="left"
-            >
-            {Array(10)
-                .fill('xd')
-                .map((x, id) => {
-                return (
-                    <div className="flex items-center bg-main" key={id}>
-                        <span className="mx-5 text-darkText text-xl font-heading sm:text-2xl lg:text-4xl">
-                            zkMIPS: Step by Step
-                        </span>
-                    </div>
-                )
-                })}
-            </Marquee>
             <div className="pb-6">
                 <ResponsiveDiv />
                 <p>Proofs of Knowledge in Verifiable Computation</p>
@@ -53,11 +34,11 @@ export default function DocContent() {
                     </ul>
                 </div>
                 <h1>zkMIPS in Verifiable Computation</h1>
-                <p>zkMIPS verifies the correctness of the execution of a MIPS program in the form of a proof. This is equivalent to the sequence of overall CPU states that represent a program’s execution. 
-                    In zkMIPS, the computational problem that we want to verify is the program. The solution comes in the form of an execution trace. 
-                    An execution trace is a complete record of the computation executed from running the program. The execution trace is commonly represented through a trace record, where each column is a list representing the states of a fixed CPU variable and the rows showing each step of the computation [1]. 
-                    The program is verified by checking whether each row of the execution trace matches the respective instruction of a program. 
-                    A solution to this is to simply rerun the program. The problem is that this is not succinct. Similar to what we’ve discussed with the trivial proofs in proofs of knowledge, the state sequences would be too large for the smart contract to verify [2]. 
+                <p>zkMIPS verifies the correctness of the execution of a MIPS program in the form of a proof. This is equivalent to the sequence of overall CPU states that represent a program’s execution.
+                    In zkMIPS, the computational problem that we want to verify is the program. The solution comes in the form of an execution trace.
+                    An execution trace is a complete record of the computation executed from running the program. The execution trace is commonly represented through a trace record, where each column is a list representing the states of a fixed CPU variable and the rows showing each step of the computation [1].
+                    The program is verified by checking whether each row of the execution trace matches the respective instruction of a program.
+                    A solution to this is to simply rerun the program. The problem is that this is not succinct. Similar to what we’ve discussed with the trivial proofs in proofs of knowledge, the state sequences would be too large for the smart contract to verify [2].
                 </p>
                 <h1>Techniques For Succinct zkMIPS Proving </h1>
                 <p>The following sections describe techniques that zkMIPS uses for improving the succinctness during the proof generation process. This includes arithmetization, FRI, method continuation, lookups and polynomial commitments. </p>
@@ -266,4 +247,5 @@ export default function DocContent() {
             </ul>
         </div>
     )
+
 }

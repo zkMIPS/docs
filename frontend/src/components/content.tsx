@@ -1,11 +1,11 @@
-'use client';
+'use client'
 
-import { MotionProps, motion } from "framer-motion";
-import { twMerge } from "tailwind-merge";
-import { FiArrowRight, FiMail, FiMapPin } from "react-icons/fi";
-import { FaPlus } from "react-icons/fa";
-import { SiGithub, SiTiktok, SiTwitter, SiYoutube  } from "react-icons/si";
-import { Button } from "@/components/ui/button";
+import { MotionProps, motion } from 'framer-motion'
+import { twMerge } from 'tailwind-merge'
+import { FiArrowRight, FiMail, FiMapPin } from 'react-icons/fi'
+import { FaPlus } from 'react-icons/fa'
+import { SiGithub, SiTiktok, SiTwitter, SiYoutube } from 'react-icons/si'
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -15,14 +15,12 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
-import { useState, useEffect } from 'react';
-import GenerateProofBlock from '@/components/generate-proof';
-
-
+import { useState, useEffect } from 'react'
+import GenerateProofBlock from '@/components/generate-proof'
 
 export default function Content() {
   return (
-    <section className="dark:bg-darkBg inset-0 flex h-full w-full flex-col items-center justify-center bg-white bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px]">
+    <section className="inset-0 flex h-full w-full flex-col items-center justify-center bg-white bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] dark:bg-darkBg">
       <div className="mx-auto w-full max-w-full px-12 py-12  lg:py-[20px]">
         <motion.div
           initial="initial"
@@ -32,9 +30,9 @@ export default function Content() {
           }}
           className="mx-auto grid grid-flow-dense grid-cols-12 gap-4"
         >
-        <div className="col-span-6">
+          <div className="col-span-6">
             <GenerateProofBlock />
-        </div>
+          </div>
           <SocialsBlock />
         </motion.div>
       </div>
@@ -42,11 +40,9 @@ export default function Content() {
   )
 }
 
-
-
 type BlockProps = {
-  className?: string;
-} & MotionProps;
+  className?: string
+} & MotionProps
 
 const Block = ({ className, ...rest }: BlockProps) => {
   return (
@@ -64,82 +60,117 @@ const Block = ({ className, ...rest }: BlockProps) => {
         },
       }}
       transition={{
-        type: "spring",
+        type: 'spring',
         mass: 3,
         stiffness: 400,
         damping: 50,
       }}
       className={twMerge(
-        "border-border dark:border-darkBorder dark:bg-darkBg shadow-light dark:shadow-dark rounded-base border-2 bg-white p-6",
-        className
+        'rounded-base border-2 border-border bg-white p-6 shadow-light dark:border-darkBorder dark:bg-darkBg dark:shadow-dark',
+        className,
       )}
       {...rest}
     />
-  );
-};
-
+  )
+}
 
 const SocialsBlock = () => (
   <>
     <Block
       whileHover={{
-        rotate: "2.5deg",
+        rotate: '2.5deg',
         scale: 1.1,
       }}
       className="col-span-12 bg-main dark:bg-main md:col-span-3"
     >
-      <img className="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/720x400" alt="content" />
-      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Under Construction</h2>
+      <img
+        className="mb-6 h-40 w-full rounded object-cover object-center"
+        src="https://dummyimage.com/720x400"
+        alt="content"
+      />
+      <h2 className="title-font mb-4 text-lg font-medium text-gray-900">
+        Under Construction
+      </h2>
     </Block>
     <Block
       whileHover={{
-        rotate: "-2.5deg",
+        rotate: '-2.5deg',
         scale: 1.1,
       }}
       className="col-span-12 bg-main dark:bg-main md:col-span-3"
     >
-      <img className="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/720x400" alt="content" />
-      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Under Construction</h2>
+      <img
+        className="mb-6 h-40 w-full rounded object-cover object-center"
+        src="https://dummyimage.com/720x400"
+        alt="content"
+      />
+      <h2 className="title-font mb-4 text-lg font-medium text-gray-900">
+        Under Construction
+      </h2>
     </Block>
     <Block
       whileHover={{
-        rotate: "-2.5deg",
+        rotate: '-2.5deg',
         scale: 1.1,
       }}
-      className="col-span-12 bg-darkText dark:bg-darkText bg-zinc-50 md:col-span-3"
+      className="col-span-12 bg-darkText bg-zinc-50 dark:bg-darkText md:col-span-3"
     >
-      <img className="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/720x400" alt="content" />
-      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Under Construction</h2>
+      <img
+        className="mb-6 h-40 w-full rounded object-cover object-center"
+        src="https://dummyimage.com/720x400"
+        alt="content"
+      />
+      <h2 className="title-font mb-4 text-lg font-medium text-gray-900">
+        Under Construction
+      </h2>
     </Block>
     <Block
       whileHover={{
-        rotate: "2.5deg",
-        scale: 1.1,
-      }}
-      className="col-span- bg-darkText dark:bg-darkText md:col-span-3"
-    >
-      <img className="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/720x400" alt="content" />
-      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Under Construction</h2>
-    </Block>
-    <Block
-      whileHover={{
-        rotate: "2.5deg",
-        scale: 1.1,
-      }}
-      className="col-span- bg-darkText dark:bg-darkText md:col-span-3"
-    >
-      <img className="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/720x400" alt="content" />
-      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Under Construction</h2>
-    </Block>
-    <Block
-      whileHover={{
-        rotate: "2.5deg",
+        rotate: '2.5deg',
         scale: 1.1,
       }}
       className="col-span- bg-darkText dark:bg-darkText md:col-span-3"
     >
-      <img className="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/720x400" alt="content" />
-      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Under Construction</h2>
+      <img
+        className="mb-6 h-40 w-full rounded object-cover object-center"
+        src="https://dummyimage.com/720x400"
+        alt="content"
+      />
+      <h2 className="title-font mb-4 text-lg font-medium text-gray-900">
+        Under Construction
+      </h2>
+    </Block>
+    <Block
+      whileHover={{
+        rotate: '2.5deg',
+        scale: 1.1,
+      }}
+      className="col-span- bg-darkText dark:bg-darkText md:col-span-3"
+    >
+      <img
+        className="mb-6 h-40 w-full rounded object-cover object-center"
+        src="https://dummyimage.com/720x400"
+        alt="content"
+      />
+      <h2 className="title-font mb-4 text-lg font-medium text-gray-900">
+        Under Construction
+      </h2>
+    </Block>
+    <Block
+      whileHover={{
+        rotate: '2.5deg',
+        scale: 1.1,
+      }}
+      className="col-span- bg-darkText dark:bg-darkText md:col-span-3"
+    >
+      <img
+        className="mb-6 h-40 w-full rounded object-cover object-center"
+        src="https://dummyimage.com/720x400"
+        alt="content"
+      />
+      <h2 className="title-font mb-4 text-lg font-medium text-gray-900">
+        Under Construction
+      </h2>
     </Block>
   </>
-);
+)

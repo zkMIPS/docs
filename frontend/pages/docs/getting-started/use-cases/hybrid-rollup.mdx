@@ -2,34 +2,14 @@
 import "../../src/app/globals.css"
 import Logo from '/assets/logoW.png'
 
-
 import Marquee from 'react-fast-marquee'
 import Image from 'next/image'
-import ResponsiveDiv from "../../../../src/components/docshero"
-
-
+import ResponsiveDiv from '../../../../src/components/docshero'
 
 export default function DocContent() {
     return(
         <div>
-            <Marquee
-            className="border-y-border dark:border-y-darkBorder dark:border-darkBorder dark:bg-darkBg border-y-2 bg-white py-3 font-base sm:py-5"
-            direction="left"
-            >
-            {Array(10)
-                .fill('xd')
-                .map((x, id) => {
-                return (
-                    <div className="flex items-center bg-main" key={id}>
-                        <span className="mx-5 text-darkText text-xl font-heading sm:text-2xl lg:text-4xl">
-                            Combining MIPS with Zero-Knowledge
-                        </span>
-                    </div>
-                )
-                })}
-            </Marquee>
             <div className="pb-6">
-                <ResponsiveDiv />
                 <p>A High-Level Overview</p>
             </div>
             <div className='pt-6 pb-6'>
@@ -105,9 +85,10 @@ export default function DocContent() {
                     <li>ZK-VMs are nascent, so a lot of research, education, tooling, and innovation is still required to make them completely practical.</li>
                     <p>There is a lot of work going into ZK-VM’s and they will inevitably mature to become completely practical and bug free.</p>
                 </ol>
-            
-            
+
+
             </div>
         </div>
     )
+
 }

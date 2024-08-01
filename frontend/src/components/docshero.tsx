@@ -1,6 +1,6 @@
-"use client";
-import Image from 'next/image';
-import React, { useState, useEffect } from 'react';
+'use client'
+import Image from 'next/image'
+import React, { useState, useEffect } from 'react'
 
 const ResponsiveDiv = () => {
   const defaultStyle = {
@@ -10,10 +10,10 @@ const ResponsiveDiv = () => {
     height: '20rem',
     filter: 'invert(100%) opacity(10%)',
     padding: '1rem',
-    margin: '1rem'
-  };
+    margin: '1rem',
+  }
 
-  const [style, setStyle] = useState(defaultStyle);
+  const [style, setStyle] = useState(defaultStyle)
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,27 +21,31 @@ const ResponsiveDiv = () => {
         setStyle({
           ...defaultStyle,
           height: '1rem',
-        });
+        })
       } else {
-        setStyle(defaultStyle);
+        setStyle(defaultStyle)
       }
-    };
+    }
 
-    handleResize();
+    handleResize()
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize)
 
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
-  return <div style={style}>
-                    <Image width={1080} height={1080}
-                        className="object-cover w-full dark:invert"
-                        src="/assets/logoW.png"
-                        alt="content"
-                        layout="intrinsic"
-                    />
-        </div>;
-};
+  return (
+    <div style={style}>
+      <Image
+        width={1080}
+        height={1080}
+        className="w-full object-cover dark:invert"
+        src="/assets/logoW.png"
+        alt="content"
+        layout="intrinsic"
+      />
+    </div>
+  )
+}
 
-export default ResponsiveDiv;
+export default ResponsiveDiv

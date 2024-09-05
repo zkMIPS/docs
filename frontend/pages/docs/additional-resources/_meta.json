@@ -1,11 +1,11 @@
 {
-  "zkmips": {
-    "title": "zkMIPS"
-  },
   "zkm-architecture": {
     "title": "ZKM Architecture"
   },
   "zkvm-vs-zkevm": {
     "title": "zkVM vs zkEVM"
+  },
+  "zkmips-step-by-step": {
+    "title": "zkMIPS Step-by-Step"
   }
 }

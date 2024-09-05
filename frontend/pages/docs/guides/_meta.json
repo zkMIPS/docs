@@ -7,5 +7,10 @@
   },
   "proof-verification-guide": {
     "title": "Proof Verification Guide"
+  },
+  "template": {
+    "title": "ZKM Project Template",
+    "href": "https://github.com/zkMIPS/zkm-project-template",
+    "newWindow": true
   }
 }

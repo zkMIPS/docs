@@ -1,14 +1,6 @@
 {
-  "introduction": {
-    "title": "Introduction"
-  },
-  "hardware-requirements": {
-    "title": "Hardware Requirements"
-  },
-  "docker-setup": {
-    "title": "Docker Setup"
-  },
-  "use-cases": {
-    "title": "Use Cases"
-  }
+  "introduction-to-zk": "Introduction to ZK",
+  "background-behind-zkvms": "Background Behind zkVMs",
+  "combining-mips-with-zero-knowledge": "Combining MIPS with Zero-Knowledge",
+  "use-cases": "Use Cases"
 }

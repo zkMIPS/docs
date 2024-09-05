@@ -1,14 +1,20 @@
 {
-  "welcome": {
-    "title": "Welcome"
+  "introduction": {
+    "title": "Introduction to ZKM"
   },
   "getting-started": {
     "title": "Getting Started"
+  },
+  "core-concepts": {
+    "title": "Core Concepts"
   },
   "guides": {
     "title": "Guides"
   },
   "additional-resources": {
     "title": "Additional Resources"
+  },
+  "faq": {
+    "title": "FAQ"
   }
 }

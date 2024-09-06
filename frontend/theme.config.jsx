@@ -9,7 +9,6 @@ export default {
       src="/assets/ZKMLogoHorizontal.png"
     />
   ),
-  docsRepositoryBase: 'https://github.com/savvycodings/zkmDoc',
   head: (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -58,6 +57,7 @@ export default {
 
       return <> {title}</>
     },
+    defaultMenuCollapseLevel: 1,
   },
   footer: {
     text: (

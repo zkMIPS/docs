@@ -3,5 +3,17 @@
     "title": "Docs",
     "type": "page",
     "display": "hidden"
+  },
+  "prover": {
+    "title": "Prover Service",
+    "type": "page",
+    "href": "https://zkm.io/apply",
+    "newWindow": true
+  },
+  "education-hub": {
+    "title": "Education Hub",
+    "type": "page",
+    "href": "https://zkm.io/education-hub",
+    "newWindow": true
   }
 }

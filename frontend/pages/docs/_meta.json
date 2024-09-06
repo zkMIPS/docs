@@ -1,20 +1,11 @@
 {
-  "introduction": {
-    "title": "Introduction to ZKM"
+  "introduction": "Introduction to ZKM",
+  "getting-started": "Getting Started",
+  "core-concepts": "Core Concepts",
+  "additional-resources": "Additional Resources",
+  "---": {
+    "type": "separator"
   },
-  "getting-started": {
-    "title": "Getting Started"
-  },
-  "core-concepts": {
-    "title": "Core Concepts"
-  },
-  "guides": {
-    "title": "Guides"
-  },
-  "additional-resources": {
-    "title": "Additional Resources"
-  },
-  "faq": {
-    "title": "FAQ"
-  }
+  "guides": "Guides",
+  "faq": "FAQ"
 }

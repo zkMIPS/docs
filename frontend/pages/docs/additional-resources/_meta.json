@@ -1,5 +1,10 @@
 {
   "zkm-architecture": "ZKM Architecture",
   "zkvm-vs-zkevm": "zkVM vs zkEVM",
-  "zkmips-step-by-step": "zkMIPS Step-by-Step"
+  "zkmips-step-by-step": "zkMIPS Step-by-Step",
+  "use-cases": {
+    "title": "Use Cases ↗",
+    "href": "https://github.com/zkMIPS/use-cases",
+    "newWindow": true
+  }
 }

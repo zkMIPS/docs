@@ -1,10 +1,15 @@
-import { Tabs } from 'nextra/components'
-import { Callout } from 'nextra/components'
-import { Steps } from 'nextra/components'
+import { Steps, Card, Cards, Callout, Tabs, FileTree } from 'nextra/components'
 
 # Proof Generation Guide
 
+<Cards>
+  <Card title="Prover Code" href="https://github.com/zkMIPS/zkm" arrow />
+</Cards>
+
 ## Minimum Requirements
+
+- [Golang](https://go.dev/dl)
+- [Rust](https://www.rust-lang.org/tools/install)
 
 | Cycles Per Segment | RAM |
 | ------------------ | --- |
@@ -16,7 +21,7 @@ import { Steps } from 'nextra/components'
 
 ### Set the Default Variables
 
-```bash
+```sh copy
 export RUST_LOG=info
 export BASEDIR=/home/ubuntu/zkm # Replace with your folder location
 export SEG_SIZE=65536 # See cycles above for exact value based on your RAM
@@ -30,13 +35,13 @@ export SEG_FILE_DIR=/tmp/output
 
 ### Compile the Go Program into a MIPS Executable
 
-```bash
+```sh copy
 GOOS=linux GOARCH=mips GOMIPS=softfloat go build -C /your/program/location
 ```
 
 This produces an ELF binary
 
-```bash
+```sh copy
 export ELF_PATH=/your/program/location
 cd $BASEDIR
 ```
@@ -53,14 +58,14 @@ cd $BASEDIR
 
 Download and install toolchain for MIPS
 
-```bash
+```sh copy
 wget http://musl.cc/mips-linux-muslsf-cross.tgz
 tar -zxvf mips-linux-muslsf-cross.tgz
 ```
 
 Modify `~/.cargo/config`
 
-```bash
+```sh copy
 [target.mips-unknown-linux-musl]
 linker = "<path-to>/mips-linux-muslsf-cross/bin/mips-linux-muslsf-gcc"
 rustflags = ["--cfg", 'target_os="zkvm"',"-C", "target-feature=+crt-static", "-C"
@@ -68,12 +73,12 @@ rustflags = ["--cfg", 'target_os="zkvm"',"-C", "target-feature=+crt-static", "-C
 
 Compile your program to MIPS, this produces an ELF Binary
 
-```bash
+```sh copy
 cd path/to/rust/code
 cargo build --target=mips-unknown-linux-musl
 ```
 
-```bash
+```sh copy
 export ELF_PATH=/your/elf/location
 cd $BASEDIR
 ```
@@ -88,13 +93,13 @@ cd $BASEDIR
 
 ### Split the ELF into Segments
 
-```sh
+```sh copy
 cargo run --release --example zkmips split
 ```
 
 ### Prove and Aggregate the Individual Segments
 
-```sh
+```sh copy
 SEG_FILE_NUM=$(ls /tmp/output | wc -l) \
     cargo run --release --example zkmips prove_segments
 ```
@@ -106,10 +111,12 @@ SEG_FILE_NUM=$(ls /tmp/output | wc -l) \
 
 After aggregating the proof, you should receive a result: `verifier/data/test_circuit` with the files:
 
-```
-common_circuit_data.json  proof_with_public_inputs.json  verifier_only_circuit_data.json
-```
+<FileTree>
+  <FileTree.File name="common_circuit_data.json" />
+  <FileTree.File name="proof_with_public_inputs.json" />
+  <FileTree.File name="verifier_only_circuit_data.json" />
+</FileTree>
 
 </Steps>
 
-After this step you will [Verify the Proof](../proof-verification-guide/).
+After this step you will [Verify the Proof](/docs/guides/proof-verification-guide/).

@@ -1,10 +1,20 @@
+import { Steps, Card, Cards, Callout, Tabs, FileTree } from 'nextra/components'
+
 # Proof Verification Guide
+
+<Cards>
+  <Card
+    title="Verifier Code"
+    href="https://github.com/zkMIPS/gnark-plonky2-verifier"
+    arrow
+  />
+</Cards>
 
 ## Convert plonky2 proof to groth16 proof
 
 Copy the three files generated in the previous step to the `gnark-plonky2-verifier/testdata/mips` directory. Convert the aggregated proof to a groth16 proof and export `testdata/mips/verifying.key` and `testdata/mips/proof.proof`.
 
-```sh
+```sh copy
 git clone https://github.com/zkMIPS/gnark-plonky2-verifier.git
 cd gnark-plonky2-verifier
 cp verifier/data/test_circuit/* testdata/mips
@@ -14,7 +24,7 @@ go build benchmark.go
 
 Generate the on chain verification contract.
 
-```sh
+```sh copy
 cd gnark-plonky2-verifier
 go build gnark_sol_caller.go
 ./gnark_sol_caller generate --outputDir hardhat/contracts
@@ -22,14 +32,14 @@ go build gnark_sol_caller.go
 
 Using verifier contract to verify proof (requires installing hardhat).
 
-```bash
+```sh copy
 cp testdata/mips/snark_proof_with_public_inputs.json hardhat/test/
 npx hardhat test
 ```
 
 ## Deploy Verifier Contract
 
-```sh
+```sh copy
 npx hardhat ignition deploy ./ignition/modules/Verifier.js --network sepolia
 ```
 
@@ -42,7 +52,7 @@ txHash: [HASH]
 
 Call the contract to verify the proof.
 
-```sh
+```sh copy
 ./gnark_sol_caller verify [ADDRESS]
 ```
 

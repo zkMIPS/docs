@@ -51,9 +51,9 @@ export default {
         )
       }
 
-      if (title === 'FAQ') {
-        return <>❓ {title}</>
-      }
+      // if (title === 'FAQ') {
+      //   return <>❓ {title}</>
+      // }
 
       return <> {title}</>
     },

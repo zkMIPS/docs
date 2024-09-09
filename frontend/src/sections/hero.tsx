@@ -164,7 +164,7 @@ const SocialsBlock = () => (
       }}
       className="col-span-6 bg-darkBg md:col-span-3"
     >
-      <Link href="/docs/introduction" legacyBehavior>
+      <Link href="/introduction" legacyBehavior>
         <a className="grid h-full place-content-center text-3xl text-white">
           <div className="flex items-center space-x-2">
             <SlDocs />

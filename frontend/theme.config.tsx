@@ -1,8 +1,10 @@
 import Image from 'next/image'
+import { DocsThemeConfig } from 'nextra-theme-docs'
 
-export default {
+const config: DocsThemeConfig = {
   logo: (
     <Image
+      alt="ZKM Logo"
       className="dark:invert"
       width={164}
       height={164}
@@ -26,6 +28,7 @@ export default {
     link: 'https://www.zkm.io/',
     icon: (
       <Image
+        alt="ZKM Logo"
         width="30"
         height="30"
         style={{
@@ -35,29 +38,22 @@ export default {
       />
     ),
   },
-  banner: {
-    key: '2.0-release',
-    text: (
-      <a href="https://playground.zkm.io/" target="_blank">
-        🎉 Our playground is live! →
-      </a>
-    ),
-  },
+  // banner: {
+  //   key: '1.0-release',
+  //   text: (
+  //     <a href="https://playground.zkm.io/" target="_blank">
+  //       🎉 Our playground is live! →
+  //     </a>
+  //   ),
+  // },
   sidebar: {
     titleComponent({ title, type }) {
       if (type === 'separator') {
-        return (
-          <div style={{ background: 'red', textAlign: 'center' }}>{title}</div>
-        )
+        return <div style={{ textAlign: 'center' }}>--- {title} ---</div>
       }
-
-      // if (title === 'FAQ') {
-      //   return <>❓ {title}</>
-      // }
 
       return <> {title}</>
     },
-    defaultMenuCollapseLevel: 1,
   },
   footer: {
     text: (
@@ -74,4 +70,10 @@ export default {
       </span>
     ),
   },
+  docsRepositoryBase: 'https://github.com/zkMIPS/docs/tree/main/frontend',
+  chat: {
+    link: 'https://discord.gg/zkm',
+  },
 }
+
+export default config

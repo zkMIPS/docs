@@ -9,7 +9,7 @@ export default function Footer() {
         ZKM{' '}
       </a>
       is a general-purpose zkVM utilizing MIPS architecture, set to facilitate
-      Ethereum as the Global/universal settlement layer.
+      the Universal Settlement Layer.
     </footer>
   )
 }

@@ -15,5 +15,29 @@
     "type": "page",
     "href": "https://zkm.io/education-hub",
     "newWindow": true
+  },
+
+  "introduction": "Introduction to ZKM",
+  "getting-started": "Getting Started",
+  "faq": "FAQ",
+
+  "development": {
+    "title": "Development",
+    "type": "separator"
+  },
+  "guides": "Guides",
+  "core-concepts": "Core Concepts",
+
+  "extras": {
+    "title": "Extras",
+    "type": "separator"
+  },
+  "zkm-architecture": "ZKM Architecture",
+  "zkvm-vs-zkevm": "zkVM vs zkEVM",
+  "zkmips-step-by-step": "zkMIPS Step-by-Step",
+  "use-cases": {
+    "title": "Use Cases ↗",
+    "href": "https://github.com/zkMIPS/use-cases",
+    "newWindow": true
   }
 }

@@ -22,34 +22,33 @@ const Star3 = () => {
   )
 }
 
-
 const queryClient = new QueryClient()
 
 export default function Home() {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-      <Hero />
-      <div>
-        <Marquee
-          className="border-y-border dark:border-y-darkBorder dark:border-darkBorder dark:bg-darkBg border-y-2 bg-white py-3 font-base sm:py-5"
-          direction="left"
-        >
-          {Array(10)
-            .fill('xd')
-            .map((x, id) => {
-              return (
-                <div className="flex items-center" key={id}>
-                  <span className="mx-10 text-xl font-heading sm:text-2xl lg:text-4xl">
-                    ZKM
-                  </span>
-                  <Star3 />
-                </div>
-              )
-            })}
-        </Marquee>
-      </div>
-      <Footer />
+        <Hero />
+        <div>
+          <Marquee
+            className="border-y-2 border-y-border bg-white py-3 font-base dark:border-darkBorder dark:border-y-darkBorder dark:bg-darkBg sm:py-5"
+            direction="left"
+          >
+            {Array(10)
+              .fill('xd')
+              .map((x, id) => {
+                return (
+                  <div className="flex items-center" key={id}>
+                    <span className="mx-10 text-xl font-heading sm:text-2xl lg:text-4xl">
+                      ZKM
+                    </span>
+                    <Star3 />
+                  </div>
+                )
+              })}
+          </Marquee>
+        </div>
+        <Footer />
       </QueryClientProvider>
     </WagmiProvider>
   )

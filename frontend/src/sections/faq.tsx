@@ -6,7 +6,7 @@ import {
 } from '@/components/ui/accordion'
 import Marquee from 'react-fast-marquee'
 
-const Star3 = () => {
+function Star3() {
   return (
     <svg
       className="h-12 w-12"
@@ -74,16 +74,14 @@ export default function Faq() {
         >
           {Array(10)
             .fill('xd')
-            .map((x, id) => {
-              return (
+            .map((x, id) => (
                 <div className="flex items-center" key={id}>
                   <span className="mx-10 text-xl font-heading sm:text-2xl lg:text-4xl">
                     Neobrutalism components
                   </span>
                   <Star3 />
                 </div>
-              )
-            })}
+              ))}
         </Marquee>
       </div>
     </div>

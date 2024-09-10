@@ -5,7 +5,7 @@ type BlockProps = {
     className?: string;
 } & MotionProps;
 
-const Block = ({ className, ...rest }: BlockProps) => {
+function Block({ className, ...rest }: BlockProps) {
 return (
     <motion.div
     variants={{
@@ -33,5 +33,5 @@ return (
     {...rest}
     />
 );
-};
+}
 export default Block;

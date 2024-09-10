@@ -1,9 +1,10 @@
 'use client'
+
 import Block from '@/components/ui/block'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { FiArrowRight, FiMail, FiMapPin } from 'react-icons/fi'
-import { FaPlus } from 'react-icons/fa'
+import { FaPlus, FaDiscord } from 'react-icons/fa'
 import {
   SiDocusaurus,
   SiDocusign,
@@ -14,7 +15,6 @@ import {
 } from 'react-icons/si'
 import { SlDocs } from 'react-icons/sl'
 import { Badge } from '@/components/ui/badge'
-import { FaDiscord } from 'react-icons/fa'
 import { PiIslandFill } from 'react-icons/pi'
 
 import { Button } from '@/components/ui/button'
@@ -64,7 +64,7 @@ export default function Hero() {
     /> */
 }
 
-const HeaderBlock = () => {
+function HeaderBlock() {
   const [progress, setProgress] = useState(13)
 
   useEffect(() => {
@@ -74,9 +74,9 @@ const HeaderBlock = () => {
 
   return (
     <Block className="col-span-12 row-span-2 md:col-span-6">
-      <Card>
+      <Card className="dark:invert">
         <CardHeader>
-          <CardTitle className="text-darkBg">Welcome to ZKM</CardTitle>
+          <CardTitle>Welcome to ZKM</CardTitle>
           <CardDescription>
             Get started with our general-purpose zkVM
           </CardDescription>
@@ -98,104 +98,110 @@ const HeaderBlock = () => {
   )
 }
 
-const SocialsBlock = () => (
-  <>
-    <Block
-      whileHover={{
-        rotate: '2.5deg',
-        scale: 1.1,
-      }}
-      className="col-span-6 bg-darkBg md:col-span-3"
-    >
+function SocialsBlock() {
+  return (
+    <>
       <a
         href="https://discord.gg/zkm"
-        className="grid h-full place-content-center text-3xl text-white"
+        className="col-span-6 bg-darkBg md:col-span-3"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div className="flex items-center space-x-2">
-          <FaDiscord />
-          <p>Discord</p>
-        </div>
+        <Block
+          whileHover={{
+            rotate: '2.5deg',
+            scale: 1.1,
+          }}
+          className="grid h-full place-content-center text-3xl"
+        >
+          <div className="flex items-center space-x-2">
+            <FaDiscord />
+            <p>Discord</p>
+          </div>
+        </Block>
       </a>
-    </Block>
-    <Block
-      whileHover={{
-        rotate: '-2.5deg',
-        scale: 1.1,
-      }}
-      className="col-span-6 bg-darkBg md:col-span-3"
-    >
       <a
         href="https://github.com/zkMIPS/zkm"
-        className="grid h-full place-content-center text-3xl text-white"
         target="_blank"
         rel="noopener noreferrer"
+        className="col-span-6 bg-darkBg text-3xl md:col-span-3"
       >
-        <div className="flex items-center space-x-2">
-          <SiGithub />
-          <p>Github</p>
-        </div>
+        <Block
+          whileHover={{
+            rotate: '-2.5deg',
+            scale: 1.1,
+          }}
+          className="grid h-full place-content-center text-3xl"
+        >
+          <div className="flex items-center space-x-2">
+            <SiGithub />
+            <p>Github</p>
+          </div>
+        </Block>
       </a>
-    </Block>
-    <Block
-      whileHover={{
-        rotate: '-2.5deg',
-        scale: 1.1,
-      }}
-      className="col-span-6 bg-darkBg md:col-span-3"
-    >
       <a
         href="https://playground.zkm.io/"
-        className="grid h-full place-content-center text-3xl text-white"
         target="_blank"
         rel="noopener noreferrer"
+        className="col-span-6 bg-darkBg md:col-span-3"
       >
-        <div className="flex items-center space-x-2">
-          <PiIslandFill />
-          <p>Playground</p>
-        </div>
-      </a>
-    </Block>
-    <Block
-      whileHover={{
-        rotate: '2.5deg',
-        scale: 1.1,
-      }}
-      className="col-span-6 bg-darkBg md:col-span-3"
-    >
-      <Link href="/introduction" legacyBehavior>
-        <a className="grid h-full place-content-center text-3xl text-white">
+        <Block
+          whileHover={{
+            rotate: '-2.5deg',
+            scale: 1.1,
+          }}
+          className="grid h-full place-content-center text-3xl"
+        >
           <div className="flex items-center space-x-2">
-            <SlDocs />
-            <p>Documents</p>
+            <PiIslandFill />
+            <p>Playground</p>
           </div>
+        </Block>
+      </a>
+      <Link href="/introduction" legacyBehavior>
+        <a className="col-span-6 bg-darkBg md:col-span-3">
+          <Block
+            whileHover={{
+              rotate: '2.5deg',
+              scale: 1.1,
+            }}
+            className="grid h-full place-content-center text-3xl"
+          >
+            <div className="flex items-center space-x-2">
+              <SlDocs />
+              <p>Documents</p>
+            </div>
+          </Block>
         </a>
       </Link>
+    </>
+  )
+}
+
+function AboutBlock() {
+  return (
+    <Block className="col-span-8 text-3xl leading-snug">
+      <p>
+        Lets get you started today!
+        <br />
+        <span className="text-zinc-400">
+          ZKM is fully open source and available for anyone to build upon
+          leveraging the MIPS instruction set.
+        </span>
+      </p>
     </Block>
-  </>
-)
+  )
+}
 
-const AboutBlock = () => (
-  <Block className="col-span-8 text-3xl leading-snug">
-    <p>
-      Lets get you started today!
-      <br />
-      <span className="text-zinc-400">
-        ZKM is fully open source and available for anyone to build upon
-        leveraging the MIPS instruction set.
-      </span>
-    </p>
-  </Block>
-)
+function AboutBlock2() {
+  return (
+    <Block className="col-span-12">
+      <Content />
+    </Block>
+  )
+}
 
-const AboutBlock2 = () => (
-  <Block className="col-span-12">
-    <Content />
-  </Block>
-)
-
-const Star4 = () => {
+function Star4() {
   return (
     <svg
       className="h-12 w-12"
@@ -212,46 +218,52 @@ const Star4 = () => {
   )
 }
 
-const ProjectBlock = () => (
-  <Block className="col-span-2 text-3xl leading-snug md:col-span-6">
-    <div className=" flex flex-col gap-3 p-5">
-      <Star4 />
-      <h4 className="mt-2 text-xl font-heading"></h4>
-      <p>text</p>
-    </div>
-  </Block>
-)
+function ProjectBlock() {
+  return (
+    <Block className="col-span-2 text-3xl leading-snug md:col-span-6">
+      <div className=" flex flex-col gap-3 p-5">
+        <Star4 />
+        <h4 className="mt-2 text-xl font-heading" />
+        <p>text</p>
+      </div>
+    </Block>
+  )
+}
 
-const LocationBlock = () => (
-  <Block className="col-span-12 flex flex-col items-center gap-4 md:col-span-3">
-    <FiMapPin className="text-3xl" />
-    <p className="text-center text-lg text-zinc-400">Cyberspace</p>
-  </Block>
-)
+function LocationBlock() {
+  return (
+    <Block className="col-span-12 flex flex-col items-center gap-4 md:col-span-3">
+      <FiMapPin className="text-3xl" />
+      <p className="text-center text-lg text-zinc-400">Cyberspace</p>
+    </Block>
+  )
+}
 
-const EmailListBlock = () => (
-  <Block className="col-span-12 md:col-span-9">
-    <p className="mb-3 text-lg">Join our mailing list</p>
-    <form
-      onSubmit={(e) => e.preventDefault()}
-      className="flex items-center gap-2"
-    >
-      <input
-        type="email"
-        placeholder="Enter your email"
-        className="w-full rounded border border-zinc-700 bg-zinc-800 px-3 py-1.5 transition-colors focus:border-red-300 focus:outline-0"
-      />
-      <button
-        type="submit"
-        className="flex items-center gap-2 whitespace-nowrap rounded bg-zinc-50 px-3 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-300"
+function EmailListBlock() {
+  return (
+    <Block className="col-span-12 md:col-span-9">
+      <p className="mb-3 text-lg">Join our mailing list</p>
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="flex items-center gap-2"
       >
-        <FiMail /> Join the list
-      </button>
-    </form>
-  </Block>
-)
+        <input
+          type="email"
+          placeholder="Enter your email"
+          className="w-full rounded border border-zinc-700 bg-zinc-800 px-3 py-1.5 transition-colors focus:border-red-300 focus:outline-0"
+        />
+        <button
+          type="submit"
+          className="flex items-center gap-2 whitespace-nowrap rounded bg-zinc-50 px-3 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-300"
+        >
+          <FiMail /> Join the list
+        </button>
+      </form>
+    </Block>
+  )
+}
 
-const Logo = () => {
+function Logo() {
   // Temp logo from https://logoipsum.com/
   return (
     <img

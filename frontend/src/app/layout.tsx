@@ -1,6 +1,7 @@
+import '../../styles/globals.css'
+import React from 'react'
 import type { Metadata } from 'next'
 import { DM_Sans } from 'next/font/google'
-import '../../styles/globals.css'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import { ThemeProvider } from '@/components/theme-provider'
 
@@ -8,7 +9,7 @@ const dmSans = DM_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'ZKM Docs',
-  description: 'The official documentation for ZKM',
+  description: 'The documentation for zkMIPS',
   icons: {
     icon: '/icon.ico',
   },

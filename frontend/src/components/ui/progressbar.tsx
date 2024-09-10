@@ -1,10 +1,12 @@
 'use client';
+
 import { useState, useEffect } from 'react';
+
 interface ProgressBarProps{
     duration: number
     isStart: boolean
 }
-const ProgressBar = ({duration, isStart}: ProgressBarProps)=>{
+function ProgressBar({duration, isStart}: ProgressBarProps) {
     const [progress, setProgress] = useState(0);
     useEffect(() => {
         if ( !isStart ) {

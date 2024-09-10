@@ -1,24 +1,23 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { useConfig } from 'nextra-theme-docs'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import { useConfig, DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
   logo: (
     <Image
       alt="ZKM Logo"
       className="dark:invert"
-      width={164}
-      height={164}
+      width={120}
+      height={120}
       src="/assets/ZKMLogoHorizontal.png"
     />
   ),
   head: () => {
     const { asPath, defaultLocale, locale } = useRouter()
     const { frontMatter } = useConfig()
-    const url =
-      'https://docs.zkm.io' +
-      (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
+    const url = `https://docs.zkm.io${
+      defaultLocale === locale ? asPath : `/${locale}${asPath}`
+    }`
 
     return (
       <>
@@ -75,7 +74,7 @@ const config: DocsThemeConfig = {
   sidebar: {
     titleComponent({ title, type }) {
       if (type === 'separator') {
-        return <div style={{ textAlign: 'center' }}>--- {title} ---</div>
+        return <div style={{ opacity: 0.75, margin: '-10px 0' }}>{title}</div>
       }
 
       return <> {title}</>

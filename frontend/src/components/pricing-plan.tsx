@@ -32,13 +32,11 @@ export default function PricingPlan({
           <span>/month</span>{' '}
         </div>
         <ul className="mt-8 flex flex-col gap-2">
-          {perks.map((perk) => {
-            return (
+          {perks.map((perk) => (
               <li key={perk} className="flex items-center gap-3">
                 <Check className="shrink-0" size={20} /> {perk}
               </li>
-            )
-          })}
+            ))}
         </ul>
       </div>
       <Button

@@ -1,4 +1,5 @@
 'use client'
+
 import { useState } from 'react'
 import Loading from '@/components/ui/loading'
 import { utils } from 'web3'
@@ -10,8 +11,6 @@ import {
   useWaitForTransactionReceipt,
 } from 'wagmi'
 import { config } from '@/lib/config'
-import Block from './ui/block'
-import { Button } from './ui/button'
 import {
   Card,
   CardContent,
@@ -21,8 +20,10 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import mytokenAbi from '@/lib/mytoken.abi.json'
+import Block from './ui/block'
+import { Button } from './ui/button'
 
-const GenerateProofBlock = () => {
+function GenerateProofBlock() {
   const { isConnected } = useAccount()
   const [inputNum, setInputNum] = useState(10)
   const [isGenerating, setIsGenerating] = useState(false)
@@ -72,34 +73,34 @@ const GenerateProofBlock = () => {
       }
       const proofObj = JSON.parse(proof)
       const commitmentX = utils.toBigInt(
-        proofObj['Proof']['Commitments'][0]['X'],
+        proofObj.Proof.Commitments[0].X,
       )
       const commitmentY = utils.toBigInt(
-        proofObj['Proof']['Commitments'][0]['Y'],
+        proofObj.Proof.Commitments[0].Y,
       )
       const commitments = [commitmentX, commitmentY]
-      const uint256input = proofObj['PublicWitness'].map((numStr: any) =>
+      const uint256input = proofObj.PublicWitness.map((numStr: any) =>
         utils.toBigInt(numStr),
       )
       const aPoint = {
-        X: utils.toBigInt(proofObj['Proof']['Ar']['X']),
-        Y: utils.toBigInt(proofObj['Proof']['Ar']['Y']),
+        X: utils.toBigInt(proofObj.Proof.Ar.X),
+        Y: utils.toBigInt(proofObj.Proof.Ar.Y),
       }
 
       const bPoint = {
         X: [
-          utils.toBigInt(proofObj['Proof']['Bs']['X']['A0']),
-          utils.toBigInt(proofObj['Proof']['Bs']['X']['A1']),
+          utils.toBigInt(proofObj.Proof.Bs.X.A0),
+          utils.toBigInt(proofObj.Proof.Bs.X.A1),
         ],
         Y: [
-          utils.toBigInt(proofObj['Proof']['Bs']['Y']['A0']),
-          utils.toBigInt(proofObj['Proof']['Bs']['Y']['A1']),
+          utils.toBigInt(proofObj.Proof.Bs.Y.A0),
+          utils.toBigInt(proofObj.Proof.Bs.Y.A1),
         ],
       }
 
       const cPoint = {
-        X: utils.toBigInt(proofObj['Proof']['Krs']['X']),
-        Y: utils.toBigInt(proofObj['Proof']['Krs']['Y']),
+        X: utils.toBigInt(proofObj.Proof.Krs.X),
+        Y: utils.toBigInt(proofObj.Proof.Krs.Y),
       }
 
       const proofData = {

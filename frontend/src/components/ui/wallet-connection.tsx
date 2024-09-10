@@ -1,8 +1,9 @@
 'use client'
+
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
 import { Button } from '@/components/ui/button'
 
-const WalletConnectButton = () => {
+function WalletConnectButton() {
   const { connect, connectors } = useConnect()
   const { disconnect } = useDisconnect()
   const { address, isConnected } = useAccount()

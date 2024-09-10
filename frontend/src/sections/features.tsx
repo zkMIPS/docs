@@ -1,6 +1,6 @@
 import Marquee from 'react-fast-marquee'
 
-const Star = () => {
+function Star() {
   return (
     <svg
       className="h-12 w-12"
@@ -15,7 +15,7 @@ const Star = () => {
   )
 }
 
-const Star2 = () => {
+function Star2() {
   return (
     <svg
       className="h-12 w-12"
@@ -33,7 +33,7 @@ const Star2 = () => {
   )
 }
 
-const Star3 = () => {
+function Star3() {
   return (
     <svg
       className="h-12 w-12"
@@ -49,7 +49,7 @@ const Star3 = () => {
   )
 }
 
-const Star4 = () => {
+function Star4() {
   return (
     <svg
       className="h-12 w-12"
@@ -66,7 +66,7 @@ const Star4 = () => {
   )
 }
 
-const Plus = () => {
+function Plus() {
   return (
     <svg
       className="h-12 w-12"
@@ -82,7 +82,7 @@ const Plus = () => {
   )
 }
 
-const Pentagon = () => {
+function Pentagon() {
   return (
     <svg
       className="h-12 w-12"
@@ -142,16 +142,14 @@ export default function Features() {
         >
           {Array(10)
             .fill('xd')
-            .map((x, id) => {
-              return (
+            .map((x, id) => (
                 <div className="flex items-center" key={id}>
                   <span className="mx-10 text-xl font-heading sm:text-2xl lg:text-4xl">
                     Neobrutalism components
                   </span>
                   <Star3 />
                 </div>
-              )
-            })}
+              ))}
         </Marquee>
       </div>
     </div>

@@ -1,12 +1,10 @@
 'use client'
+
 import Hero from '@/sections/hero'
 import Footer from '@/components/footer'
 import Marquee from 'react-fast-marquee'
-import { WagmiProvider } from 'wagmi'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { config } from '@/lib/config'
 
-const Star3 = () => {
+function Star3() {
   return (
     <svg
       className="h-12 w-12"
@@ -22,34 +20,28 @@ const Star3 = () => {
   )
 }
 
-const queryClient = new QueryClient()
-
 export default function Home() {
   return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        <Hero />
-        <div>
-          <Marquee
-            className="border-y-2 border-y-border bg-white py-3 font-base dark:border-darkBorder dark:border-y-darkBorder dark:bg-darkBg sm:py-5"
-            direction="left"
-          >
-            {Array(10)
-              .fill('xd')
-              .map((x, id) => {
-                return (
-                  <div className="flex items-center" key={id}>
-                    <span className="mx-10 text-xl font-heading sm:text-2xl lg:text-4xl">
-                      ZKM
-                    </span>
-                    <Star3 />
-                  </div>
-                )
-              })}
-          </Marquee>
-        </div>
-        <Footer />
-      </QueryClientProvider>
-    </WagmiProvider>
+    <>
+      <Hero />
+      <div>
+        <Marquee
+          className="border-y-2 border-y-border bg-white py-3 font-base dark:border-darkBorder dark:border-y-darkBorder dark:bg-darkBg sm:py-5"
+          direction="left"
+        >
+          {Array(10)
+            .fill('xd')
+            .map((x, index) => (
+              <div className="flex items-center" key={index}>
+                <span className="mx-10 text-xl font-heading sm:text-2xl lg:text-4xl">
+                  ZKM
+                </span>
+                <Star3 />
+              </div>
+            ))}
+        </Marquee>
+      </div>
+      <Footer />
+    </>
   )
 }

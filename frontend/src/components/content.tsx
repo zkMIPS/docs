@@ -44,7 +44,7 @@ type BlockProps = {
   className?: string
 } & MotionProps
 
-const Block = ({ className, ...rest }: BlockProps) => {
+function Block({ className, ...rest }: BlockProps) {
   return (
     <motion.div
       variants={{
@@ -74,8 +74,8 @@ const Block = ({ className, ...rest }: BlockProps) => {
   )
 }
 
-const SocialsBlock = () => (
-  <>
+function SocialsBlock() {
+  return <>
     <Block
       whileHover={{
         rotate: '2.5deg',
@@ -173,4 +173,4 @@ const SocialsBlock = () => (
       </h2>
     </Block>
   </>
-)
+}

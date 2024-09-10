@@ -1,14 +1,12 @@
 import { faker } from '@faker-js/faker'
 
 export default function Community() {
-  const review = () => {
-    return {
+  const review = () => ({
       pfp: faker.image.avatar(),
       fullName: faker.person.fullName(),
       jobTitle: faker.person.jobTitle(),
       review: faker.lorem.sentences({ min: 1, max: 3 }),
-    }
-  }
+    })
 
   return (
     <section className="border-b-border dark:border-b-darkBorder dark:bg-darkBg inset-0 flex w-full flex-col items-center justify-center border-b-2 bg-white bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] font-base">

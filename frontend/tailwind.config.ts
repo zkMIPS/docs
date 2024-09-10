@@ -15,8 +15,8 @@ const config: Config = {
         container: '1300px',
       },
       colors: {
-        main: '#e85d04',
-        mainAccent: '#88cc19', // not needed for shadcn components
+        main: '#eee',
+        mainAccent: '#eee', // not needed for shadcn components
         overlay: 'rgba(0,0,0,0.8)',
 
         // light mode

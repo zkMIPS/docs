@@ -11,8 +11,7 @@ export function ThemeSwitcher() {
   const { setTheme, theme } = useTheme()
 
   return (
-    <>
-      <Button
+    <Button
         size="icon"
         className="fixed right-10 top-10 z-50"
         onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
@@ -21,6 +20,5 @@ export function ThemeSwitcher() {
         <Moon className="inline h-6 w-6 stroke-text dark:hidden w500:h-4 w500:w-4" />
         <span className="sr-only">Toggle theme</span>
       </Button>
-    </>
   )
 }

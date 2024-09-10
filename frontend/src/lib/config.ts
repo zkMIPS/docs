@@ -1,6 +1,7 @@
 import { http, createConfig } from "wagmi";
 import { sepolia  } from 'wagmi/chains'
 import { metaMask } from 'wagmi/connectors';
+
 const MetaMaskOptions = {
     dappMetadata: {
       name: "Mint Prove",

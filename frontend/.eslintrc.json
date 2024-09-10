@@ -1,11 +1,5 @@
 {
-  "extends": [
-    "airbnb",
-    "airbnb/hooks",
-    "plugin:jsx-a11y/recommended",
-    "next/core-web-vitals",
-    "prettier"
-  ],
+  "extends": ["next/core-web-vitals", "prettier"],
   "rules": {
     "@next/next/no-img-element": 0,
     "react/jsx-filename-extension": [

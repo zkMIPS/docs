@@ -73,7 +73,7 @@ function HeaderBlock() {
   }, [])
 
   return (
-    <Block className="col-span-12 row-span-2 md:col-span-6">
+    <Block className="col-span-12 row-span-2 lg:col-span-6">
       <Card className="dark:invert">
         <CardHeader>
           <CardTitle>Welcome to ZKM</CardTitle>
@@ -103,7 +103,7 @@ function SocialsBlock() {
     <>
       <a
         href="https://discord.gg/zkm"
-        className="col-span-6 bg-darkBg md:col-span-3"
+        className="col-span-12 bg-darkBg lg:col-span-3"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -124,7 +124,7 @@ function SocialsBlock() {
         href="https://github.com/zkMIPS/zkm"
         target="_blank"
         rel="noopener noreferrer"
-        className="col-span-6 bg-darkBg text-3xl md:col-span-3"
+        className="col-span-12 bg-darkBg text-3xl lg:col-span-3"
       >
         <Block
           whileHover={{
@@ -143,7 +143,7 @@ function SocialsBlock() {
         href="https://playground.zkm.io/"
         target="_blank"
         rel="noopener noreferrer"
-        className="col-span-6 bg-darkBg md:col-span-3"
+        className="col-span-12 bg-darkBg lg:col-span-3"
       >
         <Block
           whileHover={{
@@ -159,7 +159,7 @@ function SocialsBlock() {
         </Block>
       </a>
       <Link href="/introduction" legacyBehavior>
-        <a className="col-span-6 bg-darkBg md:col-span-3">
+        <a className="col-span-12 bg-darkBg lg:col-span-3">
           <Block
             whileHover={{
               rotate: '2.5deg',
@@ -169,7 +169,7 @@ function SocialsBlock() {
           >
             <div className="flex items-center space-x-2">
               <SlDocs />
-              <p>Documents</p>
+              <p>Docs</p>
             </div>
           </Block>
         </a>

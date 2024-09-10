@@ -103,7 +103,7 @@ function SocialsBlock() {
     <>
       <a
         href="https://discord.gg/zkm"
-        className="col-span-12 bg-darkBg lg:col-span-3"
+        className="col-span-12 lg:col-span-3"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -124,7 +124,7 @@ function SocialsBlock() {
         href="https://github.com/zkMIPS/zkm"
         target="_blank"
         rel="noopener noreferrer"
-        className="col-span-12 bg-darkBg text-3xl lg:col-span-3"
+        className="col-span-12 text-3xl lg:col-span-3"
       >
         <Block
           whileHover={{
@@ -143,7 +143,7 @@ function SocialsBlock() {
         href="https://playground.zkm.io/"
         target="_blank"
         rel="noopener noreferrer"
-        className="col-span-12 bg-darkBg lg:col-span-3"
+        className="col-span-12 lg:col-span-3"
       >
         <Block
           whileHover={{
@@ -159,7 +159,7 @@ function SocialsBlock() {
         </Block>
       </a>
       <Link href="/introduction" legacyBehavior>
-        <a className="col-span-12 bg-darkBg lg:col-span-3">
+        <a className="col-span-12 lg:col-span-3">
           <Block
             whileHover={{
               rotate: '2.5deg',

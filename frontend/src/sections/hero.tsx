@@ -33,7 +33,7 @@ import Image from 'next/image'
 
 export default function Hero() {
   return (
-    <section className="inset-0 mb-14 flex min-h-[80dvh] w-full flex-col items-center justify-center bg-white bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] px-5 dark:bg-darkBg">
+    <section className="inset-0 flex min-h-[80dvh] w-full flex-col items-center justify-center bg-white bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] px-5 dark:bg-darkBg">
       <div className="mx-auto w-full max-w-full px-12 py-12  lg:py-[150px]">
         <motion.div
           initial="initial"
@@ -56,14 +56,6 @@ export default function Hero() {
   )
 }
 
-{
-  /* <img
-      src="https://api.dicebear.com/8.x/lorelei-neutral/svg?seed=John"
-      alt="avatar"
-      className="mb-4 size-14 rounded-full"
-    /> */
-}
-
 function HeaderBlock() {
   const [progress, setProgress] = useState(13)
 
@@ -76,16 +68,17 @@ function HeaderBlock() {
     <Block className="col-span-12 row-span-2 lg:col-span-6">
       <Card className="dark:invert">
         <CardHeader>
-          <CardTitle>Welcome to ZKM</CardTitle>
+          <CardTitle>Welcome to ZKM!</CardTitle>
           <CardDescription>
             Get started with our general-purpose zkVM
           </CardDescription>
         </CardHeader>
         <CardContent>
           <p>
-            By utilizing the power of zkMIPS We have created the Entangled
-            Rollup Network where blockchains can share native assets with no
-            added security assumptions.
+            By utilizing the power of generalizable proving with zkMIPS, we are
+            creating the infrastructure for the Entangled Rollup Network where
+            blockchains can share native assets with no added security
+            assumptions.
           </p>
         </CardContent>
         {/* <CardFooter className="flex space-x-3">
@@ -135,7 +128,7 @@ function SocialsBlock() {
         >
           <div className="flex items-center space-x-2">
             <SiGithub />
-            <p>Github</p>
+            <p>GitHub</p>
           </div>
         </Block>
       </a>

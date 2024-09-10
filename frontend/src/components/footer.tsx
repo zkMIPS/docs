@@ -6,10 +6,10 @@ export default function Footer() {
         href="https://www.zkm.io/"
         className="font-heading underline"
       >
-        ZKM{' '}
-      </a>
-      is a general-purpose zkVM utilizing MIPS architecture, set to facilitate
-      the Universal Settlement Network
+        ZKM
+      </a>{' '}
+      has built a general-purpose zkVM utilizing MIPS architecture, set to
+      facilitate the Universal Settlement Network
     </footer>
   )
 }

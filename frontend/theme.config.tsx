@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { useConfig } from 'nextra-theme-docs'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
@@ -11,12 +13,36 @@ const config: DocsThemeConfig = {
       src="/assets/ZKMLogoHorizontal.png"
     />
   ),
-  head: (
-    <>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta property="og:title" content="ZKM" />
-    </>
-  ),
+  head: () => {
+    const { asPath, defaultLocale, locale } = useRouter()
+    const { frontMatter } = useConfig()
+    const url =
+      'https://docs.zkm.io' +
+      (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
+
+    return (
+      <>
+        <link rel="icon" type="image/x-icon" href="/icon.ico" />
+        <title>{frontMatter.title || 'ZKM Docs'}</title>
+        <meta
+          property="description"
+          content={
+            frontMatter.description ||
+            'Building the Universal Settlement Network'
+          }
+        />
+        <meta property="og:url" content={url} />
+        <meta property="og:title" content={frontMatter.title || 'ZKM Docs'} />
+        <meta
+          property="og:description"
+          content={
+            frontMatter.description ||
+            'Building the Universal Settlement Network'
+          }
+        />
+      </>
+    )
+  },
   primaryHue: { dark: 29, light: 29 },
   primarySaturation: { dark: 100, light: 100 },
   useNextSeoProps() {
@@ -66,7 +92,7 @@ const config: DocsThemeConfig = {
           ZKM{' '}
         </a>
         is a general-purpose zkVM utilizing MIPS architecture, set to facilitate
-        Ethereum as the Global/universal settlement layer.
+        the Universal Settlement Network
       </span>
     ),
   },

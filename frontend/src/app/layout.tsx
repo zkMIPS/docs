@@ -7,7 +7,11 @@ import { ThemeProvider } from '@/components/theme-provider'
 const dmSans = DM_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'zkm',
+  title: 'ZKM Docs',
+  description: 'The official documentation for ZKM',
+  icons: {
+    icon: '/icon.ico',
+  },
 }
 
 export default function RootLayout({

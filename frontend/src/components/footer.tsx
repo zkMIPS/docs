@@ -9,7 +9,7 @@ export default function Footer() {
         ZKM{' '}
       </a>
       is a general-purpose zkVM utilizing MIPS architecture, set to facilitate
-      the Universal Settlement Layer.
+      the Universal Settlement Network
     </footer>
   )
 }

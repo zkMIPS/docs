@@ -1,6 +1,11 @@
+---
+title: zkMIPS Step by Step
+description: A step-by-step explanation on how ZKM works
+---
+
 import Image from 'next/image'
 
-# zkMIPS: Step by Step
+# zkMIPS Step by Step
 
 <Image width="1080" height="1080" src="/assets/step1.webp" alt="" />
 Overview of the zkMIPS architecture for proving the execution of a program
@@ -31,7 +36,7 @@ A solution to this is to simply rerun the program. The problem is that this is n
 
 The following sections describe techniques that zkMIPS uses for improving the succinctness during the proof generation process. This includes arithmetization, FRI, method continuation, lookups and polynomial commitments.&#x20;
 
-More details can be found in [“Getting to Know zkMIPS Proving Architecture”](https://www.zkm.io/blog/getting-to-know-zkmips-proving-architecture) written by ZKM Researcher Lucas Fraga and the [zkMIPS whitepaper](https://whitepaper.zkm.io/new\_zkMIPS\_white\_paper.pdf) written by the ZKM research team.&#x20;
+More details can be found in [“Getting to Know zkMIPS Proving Architecture”](https://www.zkm.io/blog/getting-to-know-zkmips-proving-architecture) written by ZKM Researcher Lucas Fraga and the [zkMIPS whitepaper](https://whitepaper.zkm.io/new_zkMIPS_white_paper.pdf) written by the ZKM research team.&#x20;
 
 **How can we complete the verification of a MIPS program more efficiently?**&#x20;
 
@@ -49,7 +54,6 @@ In moving the verification complexity to the Prover, we can use polynomials. Usi
 The constraints (verification steps) and witnesses (the values in each step) can be encoded as polynomials. The constraint and witness polynomials can be combined together to form a single composition polynomial.&#x20;
 
 <Image width="1080" height="1080" src="/assets/step2.png" alt="" />
-
 
 In the above diagram, the MIPS instructions and registers are encoded as polynomials. Constraints are applied in each row of the trace table. Each row is then converted into a constraint polynomial.&#x20;
 
@@ -90,8 +94,8 @@ In zkMIPS, the segment polynomials are broken down into four main modular tables
 
 There are two types of tables used:&#x20;
 
-* **Target table** – a table representing the entire segment&#x20;
-* **Reference table** – a table combining all four modular tables&#x20;
+- **Target table** – a table representing the entire segment&#x20;
+- **Reference table** – a table combining all four modular tables&#x20;
 
 ### **Continuation**&#x20;
 
@@ -126,11 +130,11 @@ zkMIPS is composed of: a sophisticated prover, a simple verifier and an equivale
 
 Components:&#x20;
 
-* MIPS Compiler&#x20;
-* ELF Loader&#x20;
-* MIPS VM&#x20;
-* Prover&#x20;
-* Verifier Contract&#x20;
+- MIPS Compiler&#x20;
+- ELF Loader&#x20;
+- MIPS VM&#x20;
+- Prover&#x20;
+- Verifier Contract&#x20;
 
 Steps I-III describe program execution in zkMIPS.&#x20;
 
@@ -190,10 +194,12 @@ LogUp is the lookup scheme used by zkMIPS to prove that the program instructions
 
 Traces proved in this layer are referred to as segment traces. Segment proofs can be produced before module proofs, and as a result, this layer can run in parallel with the previously described layer \[1].&#x20;
 
-5.  PLONK  – All segment proofs from the previous layer are recursively combined using the continuation protocol into one single continuation proof. This proves the correctness of the entire program trace. The continuation proofs are written using Plonky.&#x20;
+5.  PLONK – All segment proofs from the previous layer are recursively combined using the continuation protocol into one single continuation proof. This proves the correctness of the entire program trace. The continuation proofs are written using Plonky.&#x20;
 
 <Image width="1080" height="1080" src="/assets/step7.avif" alt="" />
-6. Groth16 – The Groth16 proving system is used to enable on-chain computation by converting the proof to an EVM-friendly format. The continuation proof is converted into an on-chain Groth16 (SNARK-based) proof.&#x20;
+6. Groth16 – The Groth16 proving system is used to enable on-chain computation
+by converting the proof to an EVM-friendly format. The continuation proof is
+converted into an on-chain Groth16 (SNARK-based) proof.&#x20;
 
 This enables the final proof to be verified on L1. Groth16 uses bilinear functions over elliptic curves that are natively implemented in EVM which also enables zkMIPS to verify the proof faster on-chain.&#x20;
 
@@ -221,8 +227,8 @@ The L2s in the Universal L2 structure serve as interoperability mechanisms to fa
 
 <Image width="1080" height="1080" src="/assets/step8.png" alt="" />
 
-In this example, 100 USDT is sent from the source chain (ETH L1) to the destination chain (AVA L1). A proof that the 100 USDT was burned on the L2 (ETH UL2)  is generated off-chain. The proof is verified by a verification contract on the destination chain. Once verified, the user will receive 100 USDT on AVA L1.&#x20;
+In this example, 100 USDT is sent from the source chain (ETH L1) to the destination chain (AVA L1). A proof that the 100 USDT was burned on the L2 (ETH UL2) is generated off-chain. The proof is verified by a verification contract on the destination chain. Once verified, the user will receive 100 USDT on AVA L1.&#x20;
 
-1. &#x20;[zkMIPS whitepaper](https://whitepaper.zkm.io/new\_zkMIPS\_white\_paper.pdf)
+1. &#x20;[zkMIPS whitepaper](https://whitepaper.zkm.io/new_zkMIPS_white_paper.pdf)
 2. [“Getting to Know zkMIPS Proving Architecture”](https://www.zkm.io/blog/getting-to-know-zkmips-proving-architecture)
 3. “[Implementing a Modular zkVM Using Lookups](https://www.youtube.com/watch?v=wru-kVPLkEs)

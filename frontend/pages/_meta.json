@@ -5,7 +5,7 @@
     "display": "hidden"
   },
   "prover": {
-    "title": "Prover Service",
+    "title": "Proof Network",
     "type": "page",
     "href": "https://zkm.io/apply",
     "newWindow": true

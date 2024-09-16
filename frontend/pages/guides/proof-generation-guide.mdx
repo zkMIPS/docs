@@ -24,11 +24,18 @@ import { Steps, Card, Cards, Callout, Tabs, FileTree } from 'nextra/components'
 
 <Steps>
 
+### Clone and enter the ZKM Repo
+
+```sh copy
+git clone https://github.com/zkMIPS/zkm.git
+cd zkm
+```
+
 ### Set the Default Variables
 
 ```sh copy
 export RUST_LOG=info
-export BASEDIR=/home/ubuntu/zkm # Replace with your folder location
+export BASEDIR=$PWD
 export SEG_SIZE=65536 # See cycles above for exact value based on your RAM
 export ARGS='[PUBLIC] [PRIVATE]'
 export SEG_OUTPUT=/tmp/output
@@ -114,7 +121,7 @@ SEG_FILE_NUM=$(ls /tmp/output | wc -l) \
   file directory.
 </Callout>
 
-After aggregating the proof, you should receive a result: `verifier/data/test_circuit` with the files:
+After aggregating the proof, you should receive a result: `../verifier/data/test_circuit` with the files:
 
 <FileTree>
   <FileTree.File name="common_circuit_data.json" />

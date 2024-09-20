@@ -39,6 +39,7 @@ const config: DocsThemeConfig = {
             'Building the Universal Settlement Network'
           }
         />
+        <meta property="og:image" content="/assets/zkm-main.webp" />
       </>
     )
   },

@@ -14,7 +14,7 @@ At its core, ZKM's initial use cases are focused on verifiable and succinctness 
 ZKM has valuable applications in Layer 2 (L2) blockchain solutions. L2 solutions aim to alleviate the scalability limitations of the underlying Layer 1 blockchain by processing transactions off-chain. Using ZKM, participants can cryptographically prove the validity of off-chain transactions in the Ethereum blockchain without revealing the specific details of each transaction on the public blockchain. This ensures the integrity of transactions.
 
 <Image
-  src="/images/use-cases/hybrid-rollup.png"
+  src="/assets/use-cases/hybrid-rollup.png"
   alt="Hybrid Rollup"
   width={500}
   height={500}
@@ -38,7 +38,7 @@ Using an Optimistic Challenge Process and Bitcoin Taproot, we can verify an arbi
 The Entangled Rollup structure allows for trustless communication between two rollups. This mechanism allows for communicating between two incompatible blockchains using Layer 2s, which enables transactions to be executed, proved, and executed again on a destination L2 while leveraging the security and cost-effectiveness of a Rollup.
 
 <Image
-  src="/images/use-cases/entangled-rollup.png"
+  src="/assets/use-cases/entangled-rollup.png"
   alt="Entangled Rollup"
   width={500}
   height={500}
@@ -54,7 +54,7 @@ The ability to connect two incompatible blockchains enables additional use-cases
 ### Universal L2 Extension
 
 <Image
-  src="/images/use-cases/universal-l2.png"
+  src="/assets/use-cases/universal-l2.png"
   alt="Universal L2"
   width={500}
   height={500}
@@ -67,12 +67,20 @@ The ability to connect two incompatible blockchains enables additional use-cases
 
 The Universal L2 extends the Entangled Rollup structure to focus on solving the issue of fragmented liquidity across ecosystems. Using a proof-of-burn mechanism and the native mint function of a Rollup, a user is able to burn and mint native assets to any Layer 2 that implements the Universal L2 structure. More details of this structure can be found [here](https://settlement.network/docs/native/entangled-rollup/universal-l2).
 
+### Example – Asset Transfer with Entangled Rollups
+
+The L2s in the Universal L2 structure serve as interoperability mechanisms to facilitate cross-chain transfers without the implementation of a bridge.
+
+<Image width="1080" height="1080" src="/assets/step8.png" alt="Step 8" />
+
+In this example, 100 USDT is sent from the source chain (ETH L1) to the destination chain (AVA L1). A proof that the 100 USDT was burned on the L2 (ETH UL2) is generated off-chain. The proof is verified by a verification contract on the destination chain. Once verified, the user will receive 100 USDT on AVA L1.
+
 ## zkML
 
 In the machine learning (ML) world, the use of Validity proofs has the potential to verify the application of a given ML model. This is referred to as zero-knowledge machine learning (zkML). Since the weight values within an ML model are considered proprietary information held by service providers, clients should have the means to verify the correctness of the results without accessing the trained model. Moreover, when a third party examines the results, it should be possible to confirm their accuracy even without the user’s input data. The figure below shows a scenario in medical systems where a patient sends their ECG to an ML Service Provider, and the processed result is sent back to their physician. As depicted, the physician requires a means to verify the correctness of the process.
 
 <Image
-  src="/images/use-cases/zkml.png"
+  src="/assets/use-cases/zkml.png"
   alt="zkML"
   width={500}
   height={500}

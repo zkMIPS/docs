@@ -1,9 +1,4 @@
 {
   "proof-generation-guide": "Proof Generation Guide",
-  "proof-verification-guide": "Proof Verification Guide",
-  "template": {
-    "title": "ZKM Project Template ↗",
-    "href": "https://github.com/zkMIPS/zkm-project-template",
-    "newWindow": true
-  }
+  "proof-verification-guide": "Proof Verification Guide"
 }

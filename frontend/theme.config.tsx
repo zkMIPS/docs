@@ -41,7 +41,7 @@ const config: DocsThemeConfig = {
         />
         <meta
           property="og:image"
-          content="https://docs.zkm.io/assets/zkm-main.webp"
+          content="https://docs.zkm.io/assets/zkm-main.jpg"
         />
       </>
     )

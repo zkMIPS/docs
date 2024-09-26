@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   icons: {
     icon: '/icon.ico',
   },
+  openGraph: {
+    images: ['https://docs.zkm.io/assets/zkm-main.jpg'],
+  },
 }
 
 export default function RootLayout({

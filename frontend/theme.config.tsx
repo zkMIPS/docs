@@ -21,15 +21,7 @@ const config: DocsThemeConfig = {
 
     return (
       <>
-        <link rel="icon" type="image/x-icon" href="/icon.ico" />
-        <title>{frontMatter.title || 'ZKM Docs'}</title>
-        <meta
-          property="description"
-          content={
-            frontMatter.description ||
-            'Building the Universal Settlement Network'
-          }
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:url" content={url} />
         <meta property="og:title" content={frontMatter.title || 'ZKM Docs'} />
         <meta
@@ -43,6 +35,16 @@ const config: DocsThemeConfig = {
           property="og:image"
           content="https://docs.zkm.io/assets/zkm-main.jpg"
         />
+        <meta
+          property="description"
+          content={
+            frontMatter.description ||
+            'Building the Universal Settlement Network'
+          }
+        />
+
+        <link rel="icon" type="image/x-icon" href="/icon.ico" />
+        <title>{frontMatter.title || 'ZKM Docs'}</title>
       </>
     )
   },
@@ -85,19 +87,7 @@ const config: DocsThemeConfig = {
     },
   },
   footer: {
-    text: (
-      <span className="m500:text-sm z-30 px-5 py-5 text-center font-base">
-        <a
-          target="_blank"
-          href="https://www.zkm.io/"
-          className="font-heading underline"
-        >
-          ZKM{' '}
-        </a>
-        is a general-purpose zkVM utilizing MIPS architecture, set to facilitate
-        the Universal Settlement Network
-      </span>
-    ),
+    component: <></>,
   },
   docsRepositoryBase: 'https://github.com/zkMIPS/docs/tree/main/frontend',
   chat: {

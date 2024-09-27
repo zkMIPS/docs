@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     icon: '/icon.ico',
   },
   openGraph: {
-    images: ['https://docs.zkm.io/assets/zkm-main.jpg'],
+    images: [{ url: 'https://docs.zkm.io/assets/zkm-main.jpg' }],
   },
 }
 

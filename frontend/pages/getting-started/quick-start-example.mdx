@@ -24,11 +24,18 @@ import { Steps, Card, Cards, Callout, Tabs, FileTree } from 'nextra/components'
 
 <Steps>
 
+### Clone and enter the ZKM Repo
+
+```sh copy
+git clone https://github.com/zkMIPS/zkm.git
+cd zkm
+```
+
 ### Set the Default Variables
 
 ```sh copy
 export RUST_LOG=info
-export BASEDIR=/home/ubuntu/zkm # Replace with your folder location
+export BASEDIR=$PWD # Replace with your folder location
 export SEG_SIZE=65536 # See cycles above for exact value based on your RAM
 export ARGS='2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824 hello'
 export SEG_OUTPUT=/tmp/output

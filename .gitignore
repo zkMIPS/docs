@@ -6,3 +6,4 @@
 /backend/yarn.lock
 /backend/package-lock.json
 .vercel
+.vscode

@@ -132,7 +132,7 @@ function SocialsBlock() {
           </div>
         </Block>
       </a>
-      <a
+      {/* <a
         href="https://playground.zkm.io/"
         target="_blank"
         rel="noopener noreferrer"
@@ -150,9 +150,9 @@ function SocialsBlock() {
             <p>Playground</p>
           </div>
         </Block>
-      </a>
+      </a> */}
       <Link href="/introduction" legacyBehavior>
-        <a className="col-span-12 lg:col-span-3">
+        <a className="col-span-12 lg:col-span-6">
           <Block
             whileHover={{
               rotate: '2.5deg',

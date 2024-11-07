@@ -30,10 +30,6 @@ export default function Home() {
           .fill('xd')
           .map((x, index) => (
             <div className="flex items-center" key={index}>
-              {/* <span className="mx-10 text-xl font-heading sm:text-2xl lg:text-4xl">
-                  ZKM
-                </span>
-                <Star3 /> */}
               <Image
                 alt="ZKM Logo"
                 className="dark:invert"

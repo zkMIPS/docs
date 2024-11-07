@@ -4,7 +4,7 @@ import { MotionProps, motion } from 'framer-motion'
 import { twMerge } from 'tailwind-merge'
 import { FiArrowRight, FiMail, FiMapPin } from 'react-icons/fi'
 import { FaPlus } from 'react-icons/fa'
-import { SiGithub, SiTiktok, SiTwitter, SiYoutube } from 'react-icons/si'
+import { SiGithub, SiTiktok, SiYoutube } from 'react-icons/si'
 import { Button } from '@/components/ui/button'
 import {
   Card,

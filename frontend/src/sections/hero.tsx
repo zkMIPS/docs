@@ -10,7 +10,6 @@ import {
   SiDocusign,
   SiGithub,
   SiTiktok,
-  SiTwitter,
   SiYoutube,
 } from 'react-icons/si'
 import { SlDocs } from 'react-icons/sl'

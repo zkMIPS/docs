@@ -27,7 +27,6 @@ import {
 } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
 import { useState, useEffect } from 'react'
-import Content from '@/components/content'
 import Image from 'next/image'
 
 export default function Hero() {
@@ -185,13 +184,6 @@ function AboutBlock() {
   )
 }
 
-function AboutBlock2() {
-  return (
-    <Block className="col-span-12">
-      <Content />
-    </Block>
-  )
-}
 
 function Star4() {
   return (

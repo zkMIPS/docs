@@ -8,8 +8,8 @@ import HeroAmbas from '@/sections/HeroAmbas'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'ZKM Docs',
-  description: 'The documentation for zkMIPS',
+  title: 'ZKM Ambasador',
+  description: 'Welcome to the ZKM Ambassador Program',
   icons: {
     icon: '/icon.ico',
   },

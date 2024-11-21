@@ -69,6 +69,18 @@ const config: Config = {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(0%)' },
         },
+        'pulse-slow': {
+          '0%, 100%': { opacity: '0.3' },
+          '50%': { opacity: '0.8' },
+        },
+        'pulse-fade': {
+          '0%, 100%': { opacity: '0.2' },
+          '50%': { opacity: '0.6' },
+        },
+        'pulse-bright': {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '1' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -77,6 +89,9 @@ const config: Config = {
         marquee2: 'marquee2 15s linear infinite',
         scroll:
           'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
+        'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+        'pulse-fade': 'pulse-fade 2.5s ease-in-out infinite',
+        'pulse-bright': 'pulse-bright 2s ease-in-out infinite',
       },
       screens: {
         w900: { raw: '(max-width: 900px)' },

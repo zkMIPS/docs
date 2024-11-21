@@ -19,34 +19,27 @@ import {
 import Block from '@/components/ui/block'
 import AnimatedStar from '@/components/ui/AnimatedStar'
 
-// Add DotGrid component at the top
 const DotGrid = () => {
   return (
-    <div className="relative my-auto flex-1 min-h-[120px]">
-      <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-6 py-4">
-        {[...Array(9)].map((_, i) => (
+    <div className="relative my-4 mx-auto w-[85%] h-[60px]">
+      <div className="absolute inset-0 grid grid-cols-3 gap-6">
+        {[...Array(6)].map((_, i) => (
           <div
             key={i}
             className="flex items-center justify-center"
           >
             <div 
-              className={`h-2 w-2 rounded-full 
-                ${i === 0 || i === 4 || i === 8 
-                  ? 'bg-orange-zkm/70' 
-                  : i % 2 === 0 
-                    ? 'bg-orange-zkm/30' 
-                    : 'bg-darkBg/30 dark:bg-white/30'} 
-                animate-pulse`}
+              className={`
+                ${i === 1 || i === 4
+                  ? 'h-3 w-3 animate-pulse-bright bg-orange-zkm' 
+                  : 'h-2.5 w-2.5 animate-pulse-slow bg-orange-zkm/50'}`}
               style={{
-                animationDelay: `${i * 200}ms`,
-                animationDuration: '2s'
-              } as React.CSSProperties}
+                borderRadius: '50%',
+                animationDelay: `${i * 250}ms`
+              }}
             />
           </div>
         ))}
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="h-12 w-12 rounded-full bg-gradient-to-tr from-orange-zkm/10 to-darkBg/10 dark:to-white/10 blur-xl" />
       </div>
     </div>
   )
@@ -74,8 +67,7 @@ export function AmbasPurpose() {
           </h1>
         </div>
         <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-          ZKM's Ambassadors play an essential role in educating the
-          wider community and collaborating with the core team.
+          Building a strong community through dedicated ambassadors who share our vision and values.
         </p>
         <div className="flex flex-1 items-center -mx-6">
           <DotGrid />
@@ -128,7 +120,7 @@ export function AmbasPurpose() {
               </p>
               <ul className="mt-4 space-y-4">
                 <li className="flex items-start gap-3">
-                  <Eye className="mt-1 h-5 w-5 text-orange-zkm" />
+                  <Eye className="mt-1 h-5 w-5 text-cyan-500" />
                   <div>
                     <h3 className="font-semibold">Our Vision</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">

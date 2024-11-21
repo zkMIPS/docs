@@ -21,31 +21,25 @@ import AnimatedStar from '@/components/ui/AnimatedStar'
 
 const DotGrid = () => {
   return (
-    <div className="relative my-auto flex-1 min-h-[120px]">
-      <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-6 py-4">
-        {[...Array(9)].map((_, i) => (
+    <div className="relative my-4 mx-auto w-[85%] h-[60px]">
+      <div className="absolute inset-0 grid grid-cols-6 gap-4">
+        {[...Array(6)].map((_, i) => (
           <div
             key={i}
             className="flex items-center justify-center"
           >
             <div 
-              className={`h-2.5 w-2.5 rounded-full 
-                ${i === 4 
-                  ? 'bg-orange-zkm/70' 
-                  : i % 3 === 0 
-                    ? 'bg-orange-zkm/40' 
-                    : 'bg-darkBg/30 dark:bg-white/30'} 
-                animate-pulse`}
+              className={`
+                ${i === 2 || i === 3
+                  ? 'h-3 w-3 animate-pulse-bright bg-orange-zkm' 
+                  : 'h-2.5 w-2.5 animate-pulse-slow bg-orange-zkm/40'}`}
               style={{
-                animationDelay: `${i * 300}ms`,
-                animationDuration: '2s'
-              } as React.CSSProperties}
+                borderRadius: '50%',
+                animationDelay: `${i * 200}ms`
+              }}
             />
           </div>
         ))}
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="h-14 w-14 rounded-full bg-gradient-to-tr from-orange-zkm/10 to-darkBg/10 dark:to-white/10 blur-xl" />
       </div>
     </div>
   )

@@ -23,8 +23,8 @@ const DotGrid = () => {
   return (
     <div className="relative my-4 mx-auto w-[90%] h-[70px]">
       <div className="absolute inset-0">
-        <div className="absolute left-[30%] top-1/2 w-[15%] h-[2px] bg-gradient-to-r from-orange-zkm/30 to-orange-zkm/10 animate-pulse-slow" />
-        <div className="absolute right-[30%] top-1/2 w-[15%] h-[2px] bg-gradient-to-l from-orange-zkm/30 to-orange-zkm/10 animate-pulse-slow" 
+        <div className="absolute left-[30%] top-1/2 w-[15%] h-[2px] bg-gradient-to-r from-zinc-500/20 via-orange-zkm/50 to-orange-zkm/30 animate-pulse-slow shadow-lg" />
+        <div className="absolute right-[30%] top-1/2 w-[15%] h-[2px] bg-gradient-to-l from-zinc-500/20 via-orange-zkm/50 to-orange-zkm/30 animate-pulse-slow shadow-lg" 
           style={{ animationDelay: '0.5s' }}
         />
       </div>
@@ -32,23 +32,23 @@ const DotGrid = () => {
       <div className="absolute inset-0 grid grid-cols-3 gap-8">
         <div className="flex flex-col items-center justify-center gap-2">
           <div className="relative">
-            <div className="absolute inset-0 bg-orange-zkm/10 rounded-lg" />
-            <Users className="h-5 w-5 text-orange-zkm/70 animate-pulse-slow" />
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-zkm/30 to-zinc-500/20 rounded-lg shadow-lg" />
+            <Users className="h-5 w-5 text-orange-zkm shadow-[0_0_15px_rgba(0,0,0,0.2)] animate-pulse-slow" />
           </div>
-          <div className="h-2 w-2 bg-orange-zkm/30 rounded-full animate-pulse-fade" />
+          <div className="h-2 w-2 bg-orange-zkm/60 shadow-[0_0_10px_rgba(0,0,0,0.2)] rounded-full animate-pulse-fade" />
         </div>
 
         <div className="relative flex items-center justify-center">
-          <div className="absolute w-14 h-14 bg-orange-zkm/5 rounded-full animate-pulse-slow" />
-          <div className="absolute w-10 h-10 bg-orange-zkm/10 rounded-full animate-pulse-fade" />
-          <PersonStanding className="h-7 w-7 text-orange-zkm animate-pulse-bright" />
+          <div className="absolute w-14 h-14 bg-gradient-to-br from-orange-zkm/30 to-zinc-500/20 rounded-full animate-pulse-slow shadow-lg" />
+          <div className="absolute w-10 h-10 bg-gradient-to-br from-orange-zkm/40 to-zinc-500/30 rounded-full animate-pulse-fade shadow-lg" />
+          <PersonStanding className="h-7 w-7 text-orange-zkm shadow-[0_0_15px_rgba(0,0,0,0.2)] animate-pulse-bright" />
         </div>
 
         <div className="flex flex-col items-center justify-center gap-2">
-          <div className="h-2 w-2 bg-orange-zkm/30 rounded-full animate-pulse-fade" />
+          <div className="h-2 w-2 bg-orange-zkm/60 shadow-[0_0_10px_rgba(0,0,0,0.2)] rounded-full animate-pulse-fade" />
           <div className="relative">
-            <div className="absolute inset-0 bg-orange-zkm/10 rounded-lg" />
-            <Star className="h-5 w-5 text-orange-zkm/70 animate-pulse-slow" />
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-zkm/30 to-zinc-500/20 rounded-lg shadow-lg" />
+            <Star className="h-5 w-5 text-orange-zkm shadow-[0_0_15px_rgba(0,0,0,0.2)] animate-pulse-slow" />
           </div>
         </div>
       </div>

@@ -22,28 +22,41 @@ import AnimatedStar from '@/components/ui/AnimatedStar'
 const DotGrid = () => {
   return (
     <div className="relative my-4 mx-auto w-[85%] h-[70px]">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 grid grid-cols-12 gap-1">
+          {Array.from({ length: 48 }).map((_, i) => (
+            <div 
+              key={i} 
+              className="h-1 w-1 rounded-full dark:bg-white/10 bg-orange-zkm/10 animate-pulse-fade"
+              style={{ animationDelay: `${Math.random() * 2}s` }}
+            />
+          ))}
+        </div>
+      </div>
+
       {/* Connecting Lines */}
       <div className="absolute inset-0">
         {/* Left to Center Line */}
         <div className="absolute left-[25%] top-1/2 w-[20%] h-[2px]">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-zkm/30 to-orange-zkm/10 animate-pulse-slow" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-zkm/70 to-orange-zkm/50 animate-pulse-slow" />
           {/* Decorative dots */}
-          <div className="absolute -left-1 -top-1 h-2 w-2 bg-orange-zkm/20 rounded-full animate-pulse-fade" />
-          <div className="absolute left-1/2 -top-1 h-2 w-2 bg-orange-zkm/20 rounded-full animate-pulse-fade" 
+          <div className="absolute -left-1 -top-1 h-2 w-2 bg-orange-zkm/80 rounded-full animate-pulse-fade" />
+          <div className="absolute left-1/2 -top-1 h-2 w-2 bg-orange-zkm/80 rounded-full animate-pulse-fade" 
             style={{ animationDelay: '0.3s' }}
           />
         </div>
         
         {/* Center to Right Line */}
         <div className="absolute right-[25%] top-1/2 w-[20%] h-[2px]">
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-orange-zkm/30 to-orange-zkm/10 animate-pulse-slow"
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-orange-zkm/70 to-orange-zkm/50 animate-pulse-slow"
             style={{ animationDelay: '0.5s' }}
           />
           {/* Decorative dots */}
-          <div className="absolute -right-1 -top-1 h-2 w-2 bg-orange-zkm/20 rounded-full animate-pulse-fade"
+          <div className="absolute -right-1 -top-1 h-2 w-2 bg-orange-zkm/80 rounded-full animate-pulse-fade"
             style={{ animationDelay: '0.6s' }}
           />
-          <div className="absolute right-1/2 -top-1 h-2 w-2 bg-orange-zkm/20 rounded-full animate-pulse-fade"
+          <div className="absolute right-1/2 -top-1 h-2 w-2 bg-orange-zkm/80 rounded-full animate-pulse-fade"
             style={{ animationDelay: '0.9s' }}
           />
         </div>
@@ -52,23 +65,23 @@ const DotGrid = () => {
       <div className="absolute inset-0 grid grid-cols-3 gap-8">
         <div className="flex items-center justify-center">
           <div className="relative">
-            <div className="absolute -inset-2 bg-orange-zkm/5 rounded-lg" />
-            <Lightbulb className="h-5 w-5 text-orange-zkm/60 animate-pulse-slow" />
-            <div className="absolute -bottom-2 -right-2 h-2 w-2 bg-orange-zkm/20 rounded-full animate-pulse-fade" />
+            <div className="absolute -inset-2 bg-orange-zkm/20 rounded-lg animate-pulse-slow" />
+            <Lightbulb className="h-5 w-5 text-orange-zkm animate-pulse-slow" />
+            <div className="absolute -bottom-2 -right-2 h-2 w-2 bg-orange-zkm/80 rounded-full animate-pulse-fade" />
           </div>
         </div>
 
         <div className="relative flex items-center justify-center">
-          <div className="absolute w-16 h-16 bg-orange-zkm/5 rounded-full animate-pulse-slow" />
-          <div className="absolute w-12 h-12 bg-orange-zkm/10 rounded-full animate-pulse-fade" />
+          <div className="absolute w-16 h-16 bg-orange-zkm/20 rounded-full animate-pulse-slow" />
+          <div className="absolute w-12 h-12 bg-orange-zkm/30 rounded-full animate-pulse-fade" />
           <Target className="h-8 w-8 text-orange-zkm animate-pulse-bright" />
         </div>
 
         <div className="flex items-center justify-center">
           <div className="relative">
-            <div className="absolute -inset-2 bg-orange-zkm/5 rounded-lg" />
-            <Flag className="h-5 w-5 text-orange-zkm/60 animate-pulse-slow" />
-            <div className="absolute -top-2 -left-2 h-2 w-2 bg-orange-zkm/20 rounded-full animate-pulse-fade" />
+            <div className="absolute -inset-2 bg-orange-zkm/20 rounded-lg animate-pulse-slow" />
+            <Flag className="h-5 w-5 text-orange-zkm animate-pulse-slow" />
+            <div className="absolute -top-2 -left-2 h-2 w-2 bg-orange-zkm/80 rounded-full animate-pulse-fade" />
           </div>
         </div>
       </div>

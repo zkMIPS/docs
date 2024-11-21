@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import { Split, PlusIcon } from 'lucide-react'
+import { Split, PlusIcon, Search, Users, Medal } from 'lucide-react'
 import {
   Dialog,
   DialogTrigger,
@@ -21,25 +21,34 @@ import AnimatedStar from '@/components/ui/AnimatedStar'
 
 const DotGrid = () => {
   return (
-    <div className="relative my-4 mx-auto w-[85%] h-[60px]">
-      <div className="absolute inset-0 grid grid-cols-6 gap-4">
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className="flex items-center justify-center"
-          >
-            <div 
-              className={`
-                ${i === 2 || i === 3
-                  ? 'h-3 w-3 animate-pulse-bright bg-orange-zkm' 
-                  : 'h-2.5 w-2.5 animate-pulse-slow bg-orange-zkm/40'}`}
-              style={{
-                borderRadius: '50%',
-                animationDelay: `${i * 200}ms`
-              }}
-            />
+    <div className="relative my-4 mx-auto w-[85%] h-[70px]">
+      <div className="absolute inset-0 z-[1]">
+        {/* Lines and dots with lower z-index */}
+        {/* ... rest of the lines code ... */}
+      </div>
+
+      <div className="absolute inset-0 grid grid-cols-3 gap-8">
+        <div className="flex items-center justify-center">
+          <div className="relative">
+            <div className="absolute -inset-2 bg-orange-zkm/5 rounded-lg" />
+            <Search className="h-5 w-5 text-orange-zkm/60 animate-pulse-slow z-[2]" />
+            <div className="absolute -bottom-2 -right-2 h-2 w-2 bg-orange-zkm/20 rounded-full animate-pulse-fade" />
           </div>
-        ))}
+        </div>
+
+        <div className="relative flex items-center justify-center">
+          <div className="absolute w-16 h-16 bg-orange-zkm/5 rounded-full animate-pulse-slow" />
+          <div className="absolute w-12 h-12 bg-orange-zkm/10 rounded-full animate-pulse-fade" />
+          <Medal className="h-8 w-8 text-orange-zkm animate-pulse-bright z-[2]" />
+        </div>
+
+        <div className="flex items-center justify-center">
+          <div className="relative">
+            <div className="absolute -inset-2 bg-orange-zkm/5 rounded-lg" />
+            <Users className="h-5 w-5 text-orange-zkm/60 animate-pulse-slow z-[2]" />
+            <div className="absolute -top-2 -left-2 h-2 w-2 bg-orange-zkm/20 rounded-full animate-pulse-fade" />
+          </div>
+        </div>
       </div>
     </div>
   )

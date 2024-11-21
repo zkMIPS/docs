@@ -1,15 +1,13 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import { Split, PlusIcon } from 'lucide-react'
+import { Network, PlusIcon } from 'lucide-react'
 import {
   Dialog,
   DialogTrigger,
   DialogContent,
   DialogTitle,
-  DialogImage,
   DialogSubtitle,
   DialogClose,
   DialogDescription,
@@ -19,39 +17,7 @@ import {
 import Block from '@/components/ui/block'
 import AnimatedStar from '@/components/ui/AnimatedStar'
 
-const DotGrid = () => {
-  return (
-    <div className="relative my-auto flex-1 min-h-[120px]">
-      <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-6 py-4">
-        {[...Array(9)].map((_, i) => (
-          <div
-            key={i}
-            className="flex items-center justify-center"
-          >
-            <div 
-              className={`h-2.5 w-2.5 rounded-full 
-                ${i === 4 
-                  ? 'bg-orange-zkm/70' 
-                  : i % 3 === 0 
-                    ? 'bg-orange-zkm/40' 
-                    : 'bg-darkBg/30 dark:bg-white/30'} 
-                animate-pulse`}
-              style={{
-                animationDelay: `${i * 300}ms`,
-                animationDuration: '2s'
-              } as React.CSSProperties}
-            />
-          </div>
-        ))}
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="h-14 w-14 rounded-full bg-gradient-to-tr from-orange-zkm/10 to-darkBg/10 dark:to-white/10 blur-xl" />
-      </div>
-    </div>
-  )
-}
-
-export function AmbasLooking() {
+export function AmbasSettlement() {
   return (
     <Dialog
       transition={{
@@ -66,26 +32,22 @@ export function AmbasLooking() {
         }}
         className="col-span-12 row-span-2 flex flex-col justify-between overflow-hidden rounded-base border-2 border-border bg-white p-6 shadow-light dark:border-darkBorder dark:bg-darkBg dark:shadow-dark lg:col-span-4"
       >
-        <div className="flex items-center gap-4">
+        <div className="mb-4 flex items-center gap-4">
           <AnimatedStar />
           <h1 className="text-xl font-semibold uppercase tracking-wider">
-            Who are we looking for?
+            Settlement Network
           </h1>
         </div>
-        <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-          Passionate advocates with blockchain knowledge, active in web3
-          communities, and eager to promote ZKM's mission.
+        <p className="text-muted-foreground mb-6 text-gray-600">
+          Learn about ZKM's Settlement Network and how it enables fast, secure, and efficient blockchain transactions.
         </p>
-        <div className="flex flex-1 items-center -mx-6">
-          <DotGrid />
-        </div>
-        <div className="flex flex-row items-end justify-between p-2">
+        <div className="flex flex-grow flex-row items-end justify-between">
           <div>
             <DialogTitle className="text-zinc-950 dark:text-zinc-50">
-              Ideal
+              Network
             </DialogTitle>
             <DialogSubtitle className="text-zinc-700 dark:text-zinc-400">
-              See if you match our ambassador profile
+              Explore settlement capabilities
             </DialogSubtitle>
           </div>
           <button
@@ -102,16 +64,17 @@ export function AmbasLooking() {
           style={{
             borderRadius: '24px',
           }}
-          className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden dark:bg-zinc-900 sm:w-[500px]"
+          className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden dark:bg-zinc-900 sm:w-[600px]"
         >
           <div className="p-6">
             <div className="mb-6 flex items-center gap-4">
               <AnimatedStar />
               <h1 className="text-xl font-semibold uppercase tracking-wider">
-                Who are we looking for?
+                Settlement Network
               </h1>
             </div>
             <DialogDescription
+              className="max-h-[60vh] overflow-y-auto pr-6"
               disableLayoutAnimation
               variants={{
                 initial: { opacity: 0, scale: 0.8, y: 100 },
@@ -120,31 +83,30 @@ export function AmbasLooking() {
               }}
             >
               <p className="text-muted-foreground leading-relaxed text-gray-600">
-                Passionate advocates with blockchain knowledge, active in web3
-                communities, and eager to promote ZKM's mission. Ideal
-                ambassadors are proactive, community-focused, and aligned with
-                ZKM's vision.
+                The Settlement Network is a core component of ZKM's infrastructure, providing:
               </p>
               <ul className="mt-4 space-y-4">
                 <li className="flex items-start gap-3">
-                  <Split className="mt-1 h-5 w-5 text-orange-zkm" />
+                  <Network className="mt-1 h-5 w-5 text-orange-zkm" />
                   <div>
-                    <h3 className="font-semibold">Ambassador Profile</h3>
+                    <h3 className="font-semibold">Fast Settlement</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Key qualities and responsibilities of ZKM ambassadors
+                      Enable rapid transaction finality across multiple chains
                     </p>
                   </div>
                 </li>
+                {/* Add more features as needed */}
               </ul>
-              <div className="not-prose mt-6 flex flex-col gap-4 sm:flex-row md:mt-8">
-                <Button asChild className="w-full text-left">
+              <div className="mt-6">
+                <Button asChild className="w-full">
                   <a
-                    href="https://docs.zkm.io/introduction"
+                    href="https://settlement.network"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="flex items-center justify-center"
                   >
-                    <Split className="mr-2" />
-                    Role Breakdown
+                    <Network className="mr-2" />
+                    Explore Settlement Network
                   </a>
                 </Button>
               </div>
@@ -157,4 +119,4 @@ export function AmbasLooking() {
   )
 }
 
-export default AmbasLooking
+export default AmbasSettlement 

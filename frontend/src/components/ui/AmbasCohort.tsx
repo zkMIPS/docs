@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Dialog, DialogTrigger, DialogContent, DialogClose, DialogContainer } from '@/components/ui/dialog'
 import Block from '@/components/ui/block'
 import { PlusIcon, Clock, CheckCircle2, CircleDot } from 'lucide-react'
+import { CalendarIcon } from '@/components/ui/StarVariants'
 
 export function AmbasCohorts() {
   return (
@@ -18,9 +19,12 @@ export function AmbasCohorts() {
           className="not-prose mb-6 dark:invert md:mb-8"
         />
         <div className="mb-6 flex flex-col">
-          <h2 className="text-xl font-heading text-darkBg dark:text-white">
-            2025 Cohort Dates
-          </h2>
+          <div className="flex items-center gap-4">
+            <CalendarIcon className="h-8 w-8" />
+            <h1 className="text-xl font-semibold uppercase tracking-wider">
+              2025 Cohort Dates
+            </h1>
+          </div>
           <p>
             Get ready for the 2025 ZKM Ambassador cohort! Here are the key dates
             to mark on your calendar for applications and program kickoff.
@@ -73,40 +77,7 @@ export function AmbasCohorts() {
                       Applications Open
                     </span>
                   )}
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="mb-3 inline-block h-12 w-12 text-[#ffa800]"
-                    viewBox="0 0 24 24"
-                  >
-                    {index === 0 && (
-                      <>
-                        <path d="M8 17l4 4 4-4m-4-5v9"></path>
-                        <path d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"></path>
-                      </>
-                    )}
-                    {index === 1 && (
-                      <>
-                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
-                      </>
-                    )}
-                    {index === 2 && (
-                      <>
-                        <path d="M3 18v-6a9 9 0 0118 0v6"></path>
-                        <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"></path>
-                      </>
-                    )}
-                    {index === 3 && (
-                      <>
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                      </>
-                    )}
-                  </svg>
+                  <CalendarIcon className="h-8 w-8" />
                   <h2 className="text-lg font-heading">
                     {quarter} ({dates})
                   </h2>
@@ -158,7 +129,7 @@ export function AmbasCohorts() {
 
         <div className="flex flex-col gap-6 sm:flex-row sm:justify-between">
           <div className="flex items-center">
-            <CheckCircle2 className="h-5 w-5 text-green-500" />
+            <CheckCircle2 className="h-5 w-5 text-orange-zkm" />
             <div className="ml-2">
               <p className="text-sm font-medium">Applications Open</p>
               <p className="text-xs text-zinc-500">March 1</p>
@@ -166,8 +137,8 @@ export function AmbasCohorts() {
           </div>
 
           <div className="relative flex items-center">
-            <div className="absolute hidden h-0.5 w-16 bg-border dark:bg-darkBorder sm:block" style={{ transform: 'translateX(-120%)' }}></div>
-            <CircleDot className="h-5 w-5 text-main" />
+            <div className="absolute hidden h-0.5 w-16 bg-orange-zkm/20 dark:bg-orange-zkm/20 sm:block" style={{ transform: 'translateX(-120%)' }}></div>
+            <CircleDot className="h-5 w-5 text-orange-zkm" />
             <div className="ml-2">
               <p className="text-sm font-medium">Review Period</p>
               <p className="text-xs text-zinc-500">March 8-14</p>
@@ -175,7 +146,7 @@ export function AmbasCohorts() {
           </div>
 
           <div className="relative flex items-center">
-            <div className="absolute hidden h-0.5 w-16 bg-border dark:bg-darkBorder sm:block" style={{ transform: 'translateX(-120%)' }}></div>
+            <div className="absolute hidden h-0.5 w-16 bg-orange-zkm/20 dark:bg-orange-zkm/20 sm:block" style={{ transform: 'translateX(-120%)' }}></div>
             <CircleDot className="h-5 w-5 text-zinc-300 dark:text-zinc-700" />
             <div className="ml-2">
               <p className="text-sm font-medium">Onboarding</p>

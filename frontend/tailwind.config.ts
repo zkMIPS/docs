@@ -18,6 +18,7 @@ const config: Config = {
         main: '#eee',
         mainAccent: '#eee', // not needed for shadcn components
         overlay: 'rgba(0,0,0,0.8)',
+        'orange-zkm': '#ffa800',
 
         // light mode
         bg: '#E0E7F1',

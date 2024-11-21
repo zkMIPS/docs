@@ -1,15 +1,13 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import { Split, PlusIcon } from 'lucide-react'
+import { HelpCircle, MessageCircle, PlusIcon, LineChart, TrendingUp } from 'lucide-react'
 import {
   Dialog,
   DialogTrigger,
   DialogContent,
   DialogTitle,
-  DialogImage,
   DialogSubtitle,
   DialogClose,
   DialogDescription,
@@ -17,35 +15,38 @@ import {
 } from '@/components/ui/dialog'
 
 import Block from '@/components/ui/block'
+import AnimatedStar from '@/components/ui/AnimatedStar'
+
+const DotGrid = () => {
+  return (
+    <div className="relative my-auto flex-1 min-h-[160px]">
+      <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 gap-4 py-6">
+        {[...Array(16)].map((_, i) => (
+          <div
+            key={i}
+            className="flex items-center justify-center"
+          >
+            <div 
+              className={`h-3 w-3 rounded-full 
+                ${i % 2 === 0 
+                  ? 'bg-orange-zkm/50' 
+                  : 'bg-darkBg/50 dark:bg-white/50'} 
+                animate-pulse`}
+              style={{
+                animationDelay: `${i * 120}ms`
+              }}
+            />
+          </div>
+        ))}
+      </div>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="h-16 w-16 rounded-full bg-gradient-to-tr from-orange-zkm/20 to-darkBg/20 dark:to-white/20 blur-xl" />
+      </div>
+    </div>
+  )
+}
 
 export function AmbasFAQs() {
-  const faqs = [
-    {
-      question: "What is the purpose of the ZKM Ambassador Program?",
-      answer: "The program aims to engage passionate individuals who can promote ZKM's vision and technology, foster community growth, and enhance brand awareness within the ZK ecosystem."
-    },
-    {
-      question: "How can I apply to become an ambassador?",
-      answer: "Interested candidates can submit an application outlining their relevant experience and motivations. Details on the application process can be found in the Application Process section."
-    },
-    {
-      question: "What are the main responsibilities of ambassadors?",
-      answer: "Ambassadors are expected to promote ZKM, engage with the community, participate in events, and create YouTube content and in-depth articles that expand on our existing materials."
-    },
-    {
-      question: "What support will I receive as an ambassador?",
-      answer: "As an ambassador, you will receive access to our Resource Library, training from the team, and a private communication channel on Discord for direct support and collaboration. You'll also have marketing assets and opportunities to network with other ambassadors."
-    },
-    {
-      question: "How will my contributions be recognized?",
-      answer: "We recognize outstanding contributions through a performance-based reward system, which includes swag, exclusive access, USDC rewards, and opportunities to showcase your work. Rewards are distributed at the end of each monthly challenge."
-    },
-    {
-      question: "Can I collaborate with other ambassadors on projects?",
-      answer: "Absolutely! We encourage collaboration and teamwork on initiatives to amplify our outreach and community engagement."
-    }
-  ];
-
   return (
     <Dialog
       transition={{
@@ -58,36 +59,27 @@ export function AmbasFAQs() {
         style={{
           borderRadius: '12px',
         }}
-        className="col-span-12 row-span-3 flex flex-col justify-between overflow-hidden rounded-base border-2 border-border bg-white p-6 shadow-light dark:border-darkBorder dark:bg-darkBg dark:shadow-dark lg:col-span-2"
+        className="col-span-12 row-span-3 flex flex-col overflow-hidden rounded-base border-2 border-border bg-white p-6 shadow-light dark:border-darkBorder dark:bg-darkBg dark:shadow-dark lg:col-span-2"
       >
-        <div className="flex items-center gap-4 mb-4">
-          <svg
-            className="h-16 w-16"
-            viewBox="0 0 434 434"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M433.6 217.001L430.6 216.401C382.2 206.801 321.9 201.101 259.5 199.401C303.3 153.001 342.6 105.401 370.1 63.8008C328.5 91.3008 280.9 130.601 234.5 174.401C232.7 110.601 226.8 49.2008 216.9 0.300781C207 49.2008 201.1 110.601 199.3 174.401C152.9 130.601 105.3 91.3008 63.7002 63.8008C91.2002 105.401 130.5 153.001 174.3 199.401C110.5 201.201 49.1002 207.101 0.200195 217.001C49.1002 226.901 110.5 232.801 174.3 234.601C131.4 280.001 92.8002 326.601 65.4002 367.601L63.7002 370.201L66.3002 368.501C107.3 341.001 153.9 302.401 199.3 259.601C201.1 322.001 206.7 382.201 216.3 430.701L216.9 433.701L217.5 430.701C227.1 382.301 232.8 322.001 234.5 259.601C279.9 302.501 326.5 341.101 367.5 368.501L370.1 370.201L368.4 367.601C340.9 326.601 302.3 280.001 259.5 234.601C321.9 232.801 382.1 227.201 430.6 217.601L433.6 217.001Z"
-              className="fill-text dark:fill-darkText"
-            />
-          </svg>
+        <div className="flex items-center gap-4">
+          <AnimatedStar />
           <h1 className="text-xl font-semibold uppercase tracking-wider">
             FAQs
           </h1>
         </div>
-        <p className="text-muted-foreground leading-relaxed text-gray-600">
-          Here are key details for ZKM ambassadors, covering applications,
-          responsibilities, support, and recognition to help you succeed in your
-          role. For further assistance, reach out in our Discord.
+        <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+          Find answers to common questions about the Ambassador Program and get the support you need.
         </p>
-        <div className="flex flex-grow flex-row items-end justify-between p-2">
+        <div className="flex flex-1 items-center -mx-6">
+          <DotGrid />
+        </div>
+        <div className="flex flex-row items-end justify-between p-2">
           <div>
             <DialogTitle className="text-zinc-950 dark:text-zinc-50">
-              Info
+              Questions
             </DialogTitle>
             <DialogSubtitle className="text-zinc-700 dark:text-zinc-400">
-              Find answers
+              Get quick answers
             </DialogSubtitle>
           </div>
           <button
@@ -104,27 +96,16 @@ export function AmbasFAQs() {
           style={{
             borderRadius: '24px',
           }}
-          className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden dark:bg-zinc-900 sm:w-[600px]"
+          className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden dark:bg-zinc-900 sm:w-[500px]"
         >
           <div className="p-6">
             <div className="mb-6 flex items-center gap-4">
-              <svg
-                className="h-16 w-16"
-                viewBox="0 0 434 434"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M433.6 217.001L430.6 216.401C382.2 206.801 321.9 201.101 259.5 199.401C303.3 153.001 342.6 105.401 370.1 63.8008C328.5 91.3008 280.9 130.601 234.5 174.401C232.7 110.601 226.8 49.2008 216.9 0.300781C207 49.2008 201.1 110.601 199.3 174.401C152.9 130.601 105.3 91.3008 63.7002 63.8008C91.2002 105.401 130.5 153.001 174.3 199.401C110.5 201.201 49.1002 207.101 0.200195 217.001C49.1002 226.901 110.5 232.801 174.3 234.601C131.4 280.001 92.8002 326.601 65.4002 367.601L63.7002 370.201L66.3002 368.501C107.3 341.001 153.9 302.401 199.3 259.601C201.1 322.001 206.7 382.201 216.3 430.701L216.9 433.701L217.5 430.701C227.1 382.301 232.8 322.001 234.5 259.601C279.9 302.501 326.5 341.101 367.5 368.501L370.1 370.201L368.4 367.601C340.9 326.601 302.3 280.001 259.5 234.601C321.9 232.801 382.1 227.201 430.6 217.601L433.6 217.001Z"
-                  className="fill-text dark:fill-darkText"
-                />
-              </svg>
+              <AnimatedStar />
               <h1 className="text-xl font-semibold uppercase tracking-wider">
                 Frequently Asked Questions
               </h1>
             </div>
             <DialogDescription
-              className="max-h-[60vh] overflow-y-auto pr-6"
               disableLayoutAnimation
               variants={{
                 initial: { opacity: 0, scale: 0.8, y: 100 },
@@ -132,17 +113,40 @@ export function AmbasFAQs() {
                 exit: { opacity: 0, scale: 0.8, y: 100 },
               }}
             >
-              <div className="space-y-6">
-                {faqs.map((faq, index) => (
-                  <div key={index} className="border-b border-gray-200 pb-4 last:border-0 dark:border-gray-700">
-                    <h3 className="mb-2 text-lg font-semibold text-darkBg dark:text-white">
-                      {faq.question}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-                      {faq.answer}
+              <p className="text-muted-foreground leading-relaxed text-gray-600">
+                Get answers to common questions about the Ambassador Program:
+              </p>
+              <ul className="mt-4 space-y-4">
+                <li className="flex items-start gap-3">
+                  <HelpCircle className="mt-1 h-5 w-5 text-orange-zkm" />
+                  <div>
+                    <h3 className="font-semibold">Common Questions</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      Find answers about requirements, benefits, and responsibilities
                     </p>
                   </div>
-                ))}
+                </li>
+                <li className="flex items-start gap-3">
+                  <MessageCircle className="mt-1 h-5 w-5 text-orange-zkm" />
+                  <div>
+                    <h3 className="font-semibold">Additional Support</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      Get help with specific questions not covered in FAQs
+                    </p>
+                  </div>
+                </li>
+              </ul>
+              <div className="not-prose mt-6 flex flex-col gap-4 sm:flex-row md:mt-8">
+                <Button asChild className="w-full text-left">
+                  <a
+                    href="https://www.zkm.io/faq"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <HelpCircle className="mr-2 text-orange-zkm" />
+                    View All FAQs
+                  </a>
+                </Button>
               </div>
             </DialogDescription>
           </div>

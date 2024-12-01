@@ -1,0 +1,364 @@
+import { Callout, Card, Cards } from 'nextra/components'
+
+# ZKM Project Template
+
+<Cards>
+  <Card title="Project Template" href="https://github.com/zkMIPS/zkm-project-template" arrow />
+</Cards>
+
+A template for creating ZKM projects that generate EVM-compatible proofs and on-chain verification contracts.
+
+
+```mermaid
+flowchart TD
+    subgraph Flow
+        A[Guest Program] -->|ELF input| B[Host Program]
+        B -->|Calling| C[ZKM SDK]
+    end
+    
+    subgraph Proving Options
+        C --> D[Local Proving]
+        C --> E[Network Proving]
+    end
+    
+    subgraph Output
+        D & E --> F[Proof Contract]
+    end
+```
+## Proving Options
+There are two ways to prove the guest program:
+
+- Use your local machine
+- Use ZKM proof network
+
+## Template Code Structure
+
+<Callout type="info">
+> The SDK has a libary(libsnark) which supports local proving. If the libsnark is required, please specify the features = ["snark"] in your Cargo.toml. To disable libsnark, set the environment variable NO_USE_SNARK to true when compiling the SDK.
+</Callout>
+
+```
+├── Cargo.toml
+├── LICENSE
+├── Makefile
+├── README.md
+├── assets
+│   └── temp-run-diagram.png
+├── clippy.toml
+├── contracts                   //Use Foundry to manage the verifier contract
+│   ├── README.md
+│   ├── foundry.toml
+│   //...
+├── guest-program               //Include Go and Rust examples
+│   ├── README.md
+│   ├── mem-alloc-vec
+│   ├── sha2-go
+│   └── sha2-rust
+│  
+├── host-program                //Generate the proof and verifier contracts  for the  guest programs
+│   ├── mem-alloc-vec
+│   │   ├── Cargo.toml
+│   │   ├── run-proving.sh
+│   │   └── src
+│   │       └── main.rs
+│   ├── revme
+│   │   ├── Cargo.toml
+│   │   ├── run-proving.sh
+│   │   └── src
+│   │       └── main.rs
+│   ├── sha2-go
+│   │   ├── Cargo.toml
+│   │   ├── run-proving.sh
+│   │   └── src
+│   │       └── main.rs
+│   ├── sha2-rust
+│   │   ├── Cargo.toml
+│   │   ├── run-proving.sh
+│   │   └── src
+│   │       └── main.rs
+├── install_mips_rust_tool
+├── rust-toolchain.toml
+├── sdk                         //Support proof network and local proof
+    ├── Cargo.toml
+    ├── build.rs
+    └── src
+       ├── lib.rs
+       ├── local                //Generate the proof locally using the libsnark library.
+       ├── network              //Generate the proof using ZKM Proof Network.
+       ├── proto
+       │   └── stage.proto
+       └── prover.rs            //interface
+```
+
+## Local Proving Requirements
+
+- Hardware: X86_64 CPU, 32 cores, 13GB memory (minimum)
+- OS: Linux
+- Rust: 1.81.0-nightly
+- Go : 1.22.1
+- Set up a local node for some blockchain(eg, sepolia)
+
+## Network Proving Requirements
+
+- Hardware: X86_64 CPU, 8 cores, 8G memory
+- OS: Linux
+- Rust: 1.81.0-nightly
+- Go : 1.22.1
+- CA certificate: ca.pem, ca.key
+- [Register](https://www.zkm.io/apply) your address to use
+- RPC for a blockchain (eg, sepolia)
+
+<Callout type="info">
+> All actions are assumed to be from the base directory `zkm-project-template`
+</Callout>
+
+## Running the Project
+
+### 0. Download the Repository
+
+```sh
+git clone https://github.com/zkMIPS/zkm-project-template.git
+```
+
+### 1. Build the Guest Program ELF
+
+Please refer to [this](https://github.com/zkMIPS/zkm-project-template/blob/main/guest-program/README.md) guide.
+
+### 2. Build the Host Program
+
+```sh
+cd zkm-project-template
+sdk/src/local/libsnark/compile.sh  # compile snark library
+cargo build --release              # build host programs
+```
+
+If successfully, it will generate the binary files in `target/release` containing: `sha2-rust`, `sha2-go`, `revme`, and `mem-alloc-vec`
+
+<Callout type="info">
+> You can run the guest program without generating a proof by setting the environmental variable `EXECUTE_ONLY` to "true". See [issue #152](https://github.com/zkMIPS/zkm/issues/152)
+</Callout>
+
+### 3. Generate Groth16 Proof and Verifier Contract
+
+<Callout type="info">
+> 1. There is a script program available: run_proving.sh. The script facilitates the generation of proofs on the local machine and over the proof network.
+</Callout>
+
+<Callout type="info">
+> 2. There are four guest programs (sha2-rust, sha2-go, mem-alloc-vec, revme). The following will use sha2-rust and revme as an example to demonstrate local and network proofs.
+</Callout>
+
+<Callout type="info">
+> 3. If the environmental variable `PROOF_RESULTS_PATH` is not set, the proof results file will be saved in zkm-project-template/contracts/src and contracts/verifier. If the environmental variable `PROOF_RESULTS_PATH` is set, after the proof is completed, the proof results file needs to be copied from 'PROOF_RESULTS_PATH/src' and 'PROOF_RESULTS_PATH/verifier' to the corresponding zkm-project-template/contracts/src and contracts/verifier directories.
+</Callout>
+
+<Callout type="info">
+> 4. The environment variable `VERIFYING_KEY_PATH` specifies the location of the verification key (vk). If this variable is not set to zkm-project-template/contracts/src, you should copy the `VERIFYING_KEY_PATH/verifier.sol` to zkm-project-template/contracts/src/ after executing the host program.
+</Callout>
+
+<Callout type="info">
+> 5. The environment variable `SETUP_FLAG` is set to "true", it will generate the proof key (pk), the verification key (vk) and the verifier contract and store them at the path indicated by `VERIFYING_KEY_PATH`. Then, the `SETUP_FLAG` should be set to "false", next executing the host will generate the snark proof using the same pk and vk.
+</Callout>
+
+<Callout type="info">
+> The environmental variable `SEG_SIZE` in the run-xxx_proving.sh affects the final proof generation.
+</Callout>
+
+<Callout type="info">
+> The guest program's ELF and its input are split into segments based on cycle count, according to SEG_SIZE.
+</Callout>
+
+<Callout type="info">
+> When generating proofs on the local machine, if the log shows "[the seg_num is:1]", please reduce SEG_SIZE or increase the input. If generating proofs through the proof network, SEG_SIZE must be within the range [65536, 262144].
+</Callout>
+### Example 1: `sha2-rust`
+
+This host program sends the private input pri_input = vec![5u8; 1024] and its hash (hash(pri_input)) to the guest program for verification of the hash value.
+
+#### Local Proving
+
+Make any edits to [`run-proving.sh`](host-program/run-proving.sh) and run the program:
+
+```sh
+cd zkm-project-template/host-program/sha2-rust
+./run-proving.sh sha2-rust
+```
+
+If successful, it will output a similar log:
+
+##### **`sha2-rust-local-proving.log`**
+
+```
+[2024-11-23T13:12:33Z INFO  sha2_rust] new prover client,ok.
+[2024-11-23T13:12:33Z INFO  zkm_sdk] excuting the setup.
+[2024-11-23T13:12:33Z INFO  zkm_emulator::utils] Split done 66446 : 89443
+[2024-11-23T13:21:05Z INFO  zkm_sdk::local::stark] [the seg_num is:2 ]
+[2024-11-23T13:21:55Z INFO  zkm_sdk::local::util] Process segment /mnt/data/gavin/zkm-project-template/host-program/sha2-rust/../test-vectors/input/segments/0
+[2024-11-23T13:21:59Z INFO  zkm_prover::cpu::bootstrap_kernel] Bootstrapping took 3228 cycles
+[2024-11-23T13:21:59Z INFO  zkm_prover::generation] CPU halted after 64762 cycles
+[2024-11-23T13:21:59Z INFO  zkm_prover::generation] CPU trace padded to 65536 cycles
+[2024-11-23T13:21:59Z INFO  zkm_prover::generation] Trace lengths (before padding): TraceCheckpoint { arithmetic_len: 18057, cpu_len: 65536, poseidon_len: 3227, poseidon_sponge_len: 3227, logic_len: 15372, memory_len: 390244 }
+[2024-11-23T13:22:14Z INFO  plonky2::util::timing] 19.1346s to prove root first
+[2024-11-23T13:22:15Z INFO  zkm_sdk::local::util] Process segment /mnt/data/gavin/zkm-project-template/host-program/sha2-rust/../test-vectors/input/segments/1
+[2024-11-23T13:22:18Z INFO  zkm_prover::cpu::bootstrap_kernel] Bootstrapping took 2583 cycles
+[2024-11-23T13:22:18Z INFO  zkm_prover::generation] CPU halted after 7530 cycles
+[2024-11-23T13:22:18Z INFO  zkm_prover::generation] CPU trace padded to 8192 cycles
+[2024-11-23T13:22:18Z INFO  zkm_prover::generation] Trace lengths (before padding): TraceCheckpoint { arithmetic_len: 1511, cpu_len: 8192, poseidon_len: 2582, poseidon_sponge_len: 2582, logic_len: 1157, memory_len: 123358 }
+[2024-11-23T13:22:29Z INFO  plonky2::util::timing] 14.4273s to prove root second
+[2024-11-23T13:22:30Z INFO  plonky2::util::timing] 1.3184s to prove aggression
+[2024-11-23T13:22:32Z INFO  zkm_sdk::local::util] proof size: 413003
+[2024-11-23T13:22:38Z INFO  zkm_sdk::local::util] build finish
+[2024-11-23T13:22:45Z INFO  plonky2x::backend::wrapper::wrap] Succesfully wrote common circuit data to common_circuit_data.json
+[2024-11-23T13:22:45Z INFO  plonky2x::backend::wrapper::wrap] Succesfully wrote verifier data to verifier_only_circuit_data.json
+[2024-11-23T13:22:45Z INFO  plonky2x::backend::wrapper::wrap] Succesfully wrote proof to proof_with_public_inputs.json
+[2024-11-23T13:22:45Z INFO  plonky2::util::timing] 99.1857s to prove total time
+Generating witness 2024-11-23 13:24:17.684495304 +0000 UTC m=+703.805549132
+frontend.NewWitness cost time: 143 ms
+Creating proof 2024-11-23 13:24:17.828400392 +0000 UTC m=+703.949454200
+13:24:23 DBG constraint system solver done nbConstraints=5815132 took=5606.081295
+13:24:30 DBG prover done acceleration=none backend=groth16 curve=bn254 nbConstraints=5815132 took=7527.912415
+groth16.Prove cost time: 13134 ms
+Verifying proof 2024-11-23 13:24:30.962722326 +0000 UTC m=+717.083776144
+13:24:30 DBG verifier done backend=groth16 curve=bn254 took=1.441281
+groth16.Verify cost time: 1 ms
+before len of publicWitness:1
+after len of publicWitness:2
+13:24:30 DBG verifier done backend=groth16 curve=bn254 took=1.288129
+[2024-11-23T13:24:30Z INFO  sha2_rust] Proof: successfully written 1268 bytes.
+[2024-11-23T13:24:30Z INFO  sha2_rust]  hash(bincode(pulic_input))1: [197, 85, 237, 192, 203, 240, 69, 67, 7, 62, 23, 5, 10, 112, 210, 80, 40, 245, 196, 9, 255, 152, 190, 127, 32, 148, 73, 249, 212, 64, 168, 103]
+[2024-11-23T13:24:30Z INFO  sha2_rust] Contract: successfully written 12961 bytes.
+[2024-11-23T13:24:30Z INFO  sha2_rust] Generating proof successfully. The proof file and verifier contract are in the path zkm-project-template/host-program/sha2-rust/../../contracts/src and contracts/verifier.
+[2024-11-23T13:24:30Z INFO  sha2_rust] Elapsed time: 205 secs
+```
+
+The result proof and contract files will be in the contracts/verifier and contracts/src directories respectively.
+
+#### Network Proving
+
+<Callout type="info">
+> The proving network may sometimes experience high traffic, causing proof tasks to be queued for hours.
+</Callout>
+
+<Callout type="info">   
+> The proving task requires several stages: queuing, splitting, proving, aggregating and finalizing. Each stage involves a varying duration.
+</Callout>
+
+Must set the `PRIVATE_KEY` and `ZKM_PROVER=network` in [`run-proving.sh`](host-program/run-proving.sh) and run the program:
+
+```sh
+./run-proving.sh sha2-rust
+```
+
+If successful, it will output a similar log:
+
+##### **`sha2-rust-network-proving.log`**
+
+```
+[2024-11-23T10:13:04Z INFO  sha2_rust] new prover client.
+[2024-11-23T10:13:05Z INFO  sha2_rust] new prover client,ok.
+[2024-11-23T10:13:05Z INFO  zkm_sdk::network::prover] calling request_proof.
+[2024-11-23T10:13:08Z INFO  zkm_sdk::network::prover] calling wait_proof, proof_id=31134979-8e99-4de6-988c-46211df28c80
+[2024-11-23T10:13:08Z INFO  zkm_sdk::network::prover] generate_proof : proving the task.
+[2024-11-23T10:13:38Z INFO  zkm_sdk::network::prover] generate_proof : finalizing the proof.
+[2024-11-23T10:14:11Z INFO  sha2_rust] Proof: successfully written 1263 bytes.
+[2024-11-23T10:14:11Z INFO  sha2_rust]  hash(bincode(pulic_input))1: [197, 85, 237, 192, 203, 240, 69, 67, 7, 62, 23, 5, 10, 112, 210, 80, 40, 245, 196, 9, 255, 152, 190, 127, 32, 148, 73, 249, 212, 64, 168, 103]
+[2024-11-23T10:14:11Z INFO  sha2_rust] Contract: successfully written 12960 bytes.
+[2024-11-23T10:14:11Z INFO  sha2_rust] Generating proof successfully. The proof file and verifier contract are in the path zkm-project-template/host-program/sha2-rust/../../contracts/src and contracts/verifier.
+[2024-11-23T10:14:11Z INFO  sha2_rust] Elapsed time: 66 secs
+```
+
+The result proof and contract files will be in the contracts/verifier and contracts/src directories.
+
+### 4. Deploy the Verifier Contract
+
+If your system does not has Foundry, please install it:
+
+```sh
+curl -L https://foundry.paradigm.xyz | bash
+```
+#### Verify the SNARK proof generated in step 3
+
+```
+cd  zkm-project-template/contracts
+forge test
+```
+
+If successful, it will output a similar log:
+
+```
+[⠊] Compiling...
+No files changed, compilation skipped
+
+Ran 2 tests for test/verifier.t.sol:VerifierTest
+[PASS] test_ValidProof() (gas: 287072)
+[PASS] test_ValidPublicInputs() (gas: 67184)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 8.51ms (8.64ms CPU time)
+
+Ran 1 test suite in 9.28ms (8.51ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)
+```
+
+#### Deploy the contract generated in step 3
+
+Please edit the following parameters according your aim blockchain.
+
+```
+forge script script/verifier.s.sol:VerifierScript --rpc-url https://eth-sepolia.g.alchemy.com/v2/RH793ZL_pQkZb7KttcWcTlOjPrN0BjOW --private-key df4bc5647fdb9600ceb4943d4adff3749956a8512e5707716357b13d5ee687d9
+```
+
+If successful, it will output a similar log:
+
+```
+[⠊] Compiling...
+[⠘] Compiling 2 files with Solc 0.8.26
+[⠊] Solc 0.8.26 finished in 699.26ms
+Compiler run successful!
+Script ran successfully.
+
+## Setting up 1 EVM.
+
+==========================
+
+Chain 11155111
+
+Estimated gas price: 0.000035894 gwei
+
+Estimated total gas used for script: 1228147
+
+Estimated amount required: 0.000000044083108418 ETH
+
+==========================
+
+SIMULATION COMPLETE. To broadcast these transactions, add --broadcast and wallet configuration(s) to the previous command. See forge script --help for more.
+
+Transactions saved to: /mnt/data/zkm-project-template/contracts/broadcast/verifier.s.sol/11155111/dry-run/run-latest.json
+
+Sensitive values saved to: /mnt/data/zkm-project-template/contracts/cache/verifier.s.sol/11155111/dry-run/run-latest.json
+```
+
+For more details, please refer to [this](contracts/README.md) guide.
+
+### Example 2 : `revme`
+
+The revme guest program takes a block data as input and its running is as same as the sha2-rust. Here, the focus is on explaining how to generate block data(the revme's input).
+
+#### Generate Public Input for a Specific Block
+
+<Callout type="info">
+> The local node connects  ZKM test chain in the following example. You must use the Eth-Compatible local node.
+</Callout>
+```sh
+cd ~
+git clone https://github.com/zkMIPS/revme
+cd revme
+RPC_URL=http://localhost:8545 CHAIN_ID=1337 BLOCK_NO=244 RUST_LOG=debug SUITE_JSON_PATH=./test-vectors/244.json cargo run --example process
+```
+
+If successfully, it will generate `244.json` in the path test-vectors
+
+```sh
+cp test-vectors/244.json zkm-project-template/host-program/test-vectors/
+```
+
+Next, you need to edit the `JSON_PATH` variable in the [`run-proving.sh`](host-program/revme/run-proving.sh) to match the name of the  JSON file mentioned above.
+
+Then, you can execute the run-proving.sh by following the steps outlined in `Example 1: sha2-rust`.

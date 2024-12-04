@@ -18,6 +18,7 @@ const config: Config = {
         main: '#eee',
         mainAccent: '#eee', // not needed for shadcn components
         overlay: 'rgba(0,0,0,0.8)',
+        'orange-zkm': '#ffa800',
 
         // light mode
         bg: '#E0E7F1',
@@ -59,9 +60,26 @@ const config: Config = {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' },
         },
+        scroll: {
+           to: {
+             transform: 'translate(calc(-50% - 0.5rem))',
+           },
+        },
         marquee2: {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(0%)' },
+        },
+        'pulse-slow': {
+          '0%, 100%': { opacity: '0.3' },
+          '50%': { opacity: '0.8' },
+        },
+        'pulse-fade': {
+          '0%, 100%': { opacity: '0.2' },
+          '50%': { opacity: '0.6' },
+        },
+        'pulse-bright': {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '1' },
         },
       },
       animation: {
@@ -69,6 +87,11 @@ const config: Config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
         marquee: 'marquee 15s linear infinite',
         marquee2: 'marquee2 15s linear infinite',
+        scroll:
+          'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
+        'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+        'pulse-fade': 'pulse-fade 2.5s ease-in-out infinite',
+        'pulse-bright': 'pulse-bright 2s ease-in-out infinite',
       },
       screens: {
         w900: { raw: '(max-width: 900px)' },

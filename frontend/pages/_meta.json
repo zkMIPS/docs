@@ -25,11 +25,7 @@
     "title": "Development",
     "type": "separator"
   },
-  "template": {
-    "title": "ZKM Project Template ↗",
-    "href": "https://github.com/zkMIPS/zkm-project-template",
-    "newWindow": true
-  },
+  "zkm-temp-project": "ZKM Project Template",
   "guides": "Guides",
   "core-concepts": "Core Concepts",
 

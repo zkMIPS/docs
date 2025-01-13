@@ -20,14 +20,7 @@
   "introduction": "Introduction to ZKM",
   "getting-started": "Getting Started",
   "faq": "FAQ",
-
-  "development": {
-    "title": "Development",
-    "type": "separator"
-  },
-  "zkm-temp-project": "ZKM Project Template",
-  "guides": "Guides",
-  "core-concepts": "Core Concepts",
+  "developer-tutorial": "Developer Tutorial",
 
   "extras": {
     "title": "Extras",

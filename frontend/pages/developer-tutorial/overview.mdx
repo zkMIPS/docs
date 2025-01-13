@@ -1,0 +1,46 @@
+---
+title: Overview
+description:
+---
+
+import Image from 'next/image'
+
+# Overview
+
+<Image
+  src="/assets/zkmips_overview.png"
+  alt="zkMIPS overview"
+  width={1000}
+  height={1000}
+/>
+
+zkMIPS verifies the correctness of the execution of a MIPS program in the form of a proof. This is equivalent to the sequence of overall CPU states that represent a program’s execution.
+
+In zkMIPS, the computational problem that we want to verify is the program. The solution comes in the form of an execution trace.
+
+An execution trace is a complete record of the computation executed from running the program. The execution trace is commonly represented through a trace record, where each column is a list representing the states of a fixed CPU variable and the rows showing each step of the computation.
+
+The program is verified by checking whether each row of the execution trace matches the respective instruction of a program.
+
+## Components
+
+### MIPS Compiler
+A program written in Go or Rust is compiled into a MIPS ELF binary file using the MIPS Compiler. The ELF file is the executable format for the MIPS instruction set.
+
+### ELF Loader
+The MIPS ELF binary file is loaded into the MIPS VM using the ELF Loader.
+
+### MIPS VM
+The MIPS VM runs the program and generates an execution trace for the Prover.
+
+### Prover
+The Prover executes the MIPS program and uses the execution trace to generate a proof.
+
+As part of the Prover, the following are steps in the proof generation process:
+
+1. The program and trace are divided into segments.
+2. The segments are divided into modules. The instructions of each segment are divided into groups of four module tables: arithmetic, logic, memory and control.
+3. STARK – The modules are proven independently and in parallel with FRI. These proofs are FRI-based modular proofs.
+4. LogUp (STARK) – The modular proofs from the previous step are combined into one single proof for each segment using the LogUp lookup protocol. These segment proofs are LogUp proofs written using Starky.
+5. PLONK – All segment proofs from the previous layer are recursively combined using the continuation protocol into one single continuation proof. This proves the correctness of the entire program trace. The continuation proofs are written using Plonky.
+6. Groth16 – The Groth16 proving system is used to enable on-chain computation by converting the proof to an EVM-friendly format. The continuation proof is converted into an on-chain Groth16 (SNARK-based) proof.

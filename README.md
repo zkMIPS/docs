@@ -1,9 +1,15 @@
 # In Backend
 
-> pnpm install
-> pnpm server
+```shell
+cd frontend
+pnpm install
+pnpm server
+```
 
 # In frontend
 
-> pnpm install
-> pnpm dev
+```shell
+cd backend
+pnpm install
+pnpm dev
+```

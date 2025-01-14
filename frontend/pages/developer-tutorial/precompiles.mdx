@@ -123,7 +123,7 @@ fn main() {
 
 ### sha2-precompile: [guest program](https://github.com/zkMIPS/zkm-project-template/tree/main/guest-program/sha2-precompile)
 
-Compared to [sha2-rust](https://github.com/zkMIPS/zkm-project-template/tree/main/guest-program/sha2-rust), [sha2-precompile](https://github.com/zkMIPS/zkm-project-template/tree/main/guest-program/sha2-precompile) first reads the [receipt](http://3.15.141.150:8080/dev/proof-composition.html) produced by [sha2-rust](https://github.com/zkMIPS/zkm-project-template/tree/main/guest-program/sha2-rust) and verifies it, and then produces its own receipt.
+Compared to [sha2-rust](https://github.com/zkMIPS/zkm-project-template/tree/main/guest-program/sha2-rust), [sha2-precompile](https://github.com/zkMIPS/zkm-project-template/tree/main/guest-program/sha2-precompile) first reads the [receipt](https://docs.zkm.io/developer-tutorial/proof-composition#what-is-a-receipt) produced by [sha2-rust](https://github.com/zkMIPS/zkm-project-template/tree/main/guest-program/sha2-rust) and verifies it, and then produces its own receipt.
 
 ```rust
 let elf_id: Vec<u8> = zkm_runtime::io::read();
@@ -161,6 +161,6 @@ pub fn main() {
 
 ### sha2-precompile: [host program](https://github.com/zkMIPS/zkm-project-template/tree/main/host-program/sha2-precompile)
 
-Compared to [sha2-rust](https://github.com/zkMIPS/zkm-project-template/tree/main/host-program/sha2-rust), [sha2-precompile](https://github.com/zkMIPS/zkm-project-template/tree/main/host-program/sha2-precompile) first generates the [receipt](receipt) of [sha2-rust](https://github.com/zkMIPS/zkm-project-template/tree/main/host-program/sha2-rust), and then generates its own.
+Compared to [sha2-rust](https://github.com/zkMIPS/zkm-project-template/tree/main/host-program/sha2-rust), [sha2-precompile](https://github.com/zkMIPS/zkm-project-template/tree/main/host-program/sha2-precompile) first generates the [receipt](https://docs.zkm.io/developer-tutorial/proof-composition#what-is-a-receipt) of [sha2-rust](https://github.com/zkMIPS/zkm-project-template/tree/main/host-program/sha2-rust), and then generates its own.
 
 The complete code is here: [code](https://github.com/zkMIPS/zkm-project-template/blob/main/host-program/sha2-precompile/src/main.rs).

@@ -26,8 +26,8 @@ The SHA2 proof composition first reads the receipt produced by sha2-rust, verifi
 - *Host Guest Program:* Takes InnerReceipt and verifies that the program’s image ID and public input match the referenced assumptions. These assumptions are then added to the AssumptionsUsed list. If not, an error is outputted.
 - *Main Host Program:* takes the receipt of the precompile guest program, proves the main guest program, and returns a list of receipts used by the main guest program
 - Produces a CompositeReceipt, which is the combination proof that:
-1. The composite proof was successfully verified.
-2. The composite proof was correctly incorporated into the AssumptionsUsed list.
+1. The precompile proof was successfully verified.
+2. The precompile proof was correctly incorporated into the AssumptionsUsed list.
 3. A valid composite proof aggregates the assumptions from AssumptionsUsed and the main host program's proof into a single verifiable receipt.
 4. A final receipt is outputted.
 

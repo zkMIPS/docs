@@ -5,6 +5,13 @@ description:
 
 # Proof Composition
 
+## Proof Composition Overview 
+
+- Acts as a standalone program generating a verifiable proof for its computation e.g., hashing a given input - users have the ability to verify proofs within the program.
+- Proofs can be reused by other programs without re-executing the original computation.
+- Generate a concise proof proving anything that has been previously proven by combining any number of proofs.
+- Upgradeable – support verification of any proof type without modifying the existing on-chain verifier.
+
 ## What is a receipt?
 
 A receipt gives the results of your program along with proof that they were produced honestly.
@@ -12,6 +19,17 @@ A receipt gives the results of your program along with proof that they were prod
 ## What is Proof Composition
 
 You can verify other receipts in the guest use ```zkm_runtime::io::verify```
+
+## SHA2 Proof Composition Steps 
+The SHA2 proof composition first reads the receipt produced by sha2-rust, verifies it, and produces its own receipt. 
+- *Guest Program:* Generates a proof that verifies the SHA-256 hash computation on the specified public input produces the expected hash output and receipt. This precompile proof (**InnerReceipt**) is stored as an *assumption*, making it reusable by other programs.
+- *Host Guest Program:* Takes InnerReceipt and verifies that the program’s image ID and public input match the referenced assumptions. These assumptions are then added to the AssumptionsUsed list. If not, an error is outputted.
+- *Main Host Program:* takes the receipt of the precompile guest program, proves the main guest program, and returns a list of receipts used by the main guest program
+- Produces a CompositeReceipt, which is the combination proof that:
+1. The composite proof was successfully verified.
+2. The composite proof was correctly incorporated into the AssumptionsUsed list.
+3. A valid composite proof aggregates the assumptions from AssumptionsUsed and the main host program's proof into a single verifiable receipt.
+4. A final receipt is outputted.
 
 ## Example
 
@@ -41,3 +59,11 @@ pub fn main() {
     zkm_runtime::io::commit::<[u8; 32]>(&output);
 }
 ```
+
+## Proof Composition Use Cases 
+
+Proof Composition Use Cases 
+- Privacy-Related — privately attest parts of a program by parties who hold sensitive information.
+- Modularity — create a single receipt for a workflow that is divided into different operations and modules.
+- Proof Aggregation — aggregate multiple proofs into a single proof for efficient batch verification.
+- Combined Proofs — generate a combined proof of assets given using individual proofs e.g., a proof of ETH assets on one account and a proof of BTC assets on another account. 
